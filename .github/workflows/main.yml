@@ -19,7 +19,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.ssh_host }}
-          username: d0422ce1
+          username: f0170c88
           password: ${{ secrets.ftp_password }}
 
       # Schritt 2: Führe Migrationen auf dem Live-Server über SSH aus
