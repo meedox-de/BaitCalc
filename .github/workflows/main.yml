@@ -34,3 +34,5 @@ jobs:
             cd www/htdocs/w00866af/baitcalc.computer-area.net
             
             /usr/bin/php82 yii migrate --interactive=0
+            
+            /usr/bin/php82 yii cache/flush-all
