@@ -1,0 +1,36 @@
+name: Deploy BaitCalc
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy ↗️
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      # Schritt 1: Dateien auf den Hosting-Server synchronisieren
+      - name: Sync files to hosting
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.ssh_host }}
+          username: d0422ce1
+          password: ${{ secrets.ftp_password }}
+
+      # Schritt 2: Führe Migrationen auf dem Live-Server über SSH aus
+      - name: Run Yii2 migrations on live server
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.ssh_host }}
+          username: ${{ secrets.ssh_username }}
+          password: ${{ secrets.ssh_password }} # Oder alternativ mit einem SSH Key
+          port: 22
+          script: |
+            cd www/htdocs/w00866af/baitcalc.computer-area.net
+            
+            /usr/bin/php82 yii migrate --interactive=0
