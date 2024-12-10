@@ -24,25 +24,28 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
-    public function behaviors()
+    public function behaviors() :array
     {
         return [
-            'access' => [
-                'class' => AccessControl::class,
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
+//            'access' => [
+//                'class' => AccessControl::class,
+//                'only'  => [
+//                    'logout',
+//                    'signup',
+//                ],
+//                'rules' => [
+//                    [
+//                        'actions' => ['signup'],
+//                        'allow'   => true,
+//                        'roles'   => ['?'],
+//                    ],
+//                    [
+//                        'actions' => ['logout'],
+//                        'allow'   => true,
+//                        'roles'   => ['@'],
+//                    ],
+//                ],
+//            ],
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [
@@ -55,7 +58,7 @@ class SiteController extends Controller
     /**
      * {@inheritdoc}
      */
-    public function actions()
+    public function actions() :array
     {
         return [
             'error' => [

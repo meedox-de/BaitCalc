@@ -1,4 +1,7 @@
 <?php
+
+use yii\filters\AccessControl;
+
 $params = array_merge(
     require __DIR__ . '/../../common/config/params.php',
     require __DIR__ . '/../../common/config/params-local.php',
@@ -41,6 +44,24 @@ return [
             'showScriptName' => false,
             'rules' => [
             ],
+        ],
+    ],
+    'as beforeRequest' => [
+        'class' => AccessControl::class,
+        'rules' => [
+            [
+                'allow' => true,
+                'roles' => ['@'],
+            ],
+        ],
+        'except' => [
+            'site/index',
+            'site/signup',
+            'site/login',
+            'site/resend-verification-email',
+            'site/request-password-reset',
+            'site/reset-password',
+            'gii',
         ],
     ],
     'params' => $params,
