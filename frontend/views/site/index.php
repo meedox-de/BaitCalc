@@ -14,7 +14,7 @@ $this->title = 'My Yii Application';
                 <h1 class="display-4">Welcome back, <?= Yii::$app->user->identity->username ?></h1>
                 <p class="fs-5 fw-light">You are now logged in.</p>
             <?php endif; ?>
-            
+
             <p class="fs-5 fw-light"></p>
         </div>
     </div>
