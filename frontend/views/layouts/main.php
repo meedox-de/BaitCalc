@@ -36,8 +36,6 @@ AppAsset::register($this);
     ]);
     $menuItems = [
         ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
@@ -64,17 +62,17 @@ AppAsset::register($this);
 <main role="main" class="flex-shrink-0">
     <div class="container">
         <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
+            'links' => $this->params['breadcrumbs'] ?? [],
+        ]); ?>
+        <?= Alert::widget(); ?>
         <?= $content ?>
     </div>
 </main>
 
 <footer class="footer mt-auto py-3 text-muted">
     <div class="container">
-        <p class="float-start">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-        <p class="float-end"><?= Yii::powered() ?></p>
+        <p class="float-start"><?= Html::encode( Yii::$app->name ) ?> &copy; 2024 - <?= date( 'Y' ) ?></p>
+        <p class="float-end">Version <?= Yii::$app->params['version'] ?></p>
     </div>
 </footer>
 

@@ -11,6 +11,7 @@ $params = array_merge(
 
 return [
     'id' => 'bait-calc',
+    'name' => 'Bait Calc',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
@@ -56,6 +57,8 @@ return [
         ],
         'except' => [
             'site/index',
+            'site/about',
+            'site/error',
             'site/signup',
             'site/login',
             'site/resend-verification-email',
