@@ -95,6 +95,20 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2-faker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2-gii" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/yiisoft/yii2-symfonymailer" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/runtime/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/runtime/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/web/assets/16f58add" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/web/assets/63d74bf7" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/web/assets/88b27aa3" />
+      <excludeFolder url="file://$MODULE_DIR$/console/runtime/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/runtime/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/runtime/debug" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/runtime/logs" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/runtime/mail" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/web/assets/16f58add" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/web/assets/63d74bf7" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/web/assets/88b27aa3" />
+      <excludeFolder url="file://$MODULE_DIR$/frontend/web/assets/93c8173f" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
