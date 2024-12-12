@@ -22,6 +22,8 @@ jobs:
           server: ${{ secrets.ssh_host }}
           username: f0170c88
           password: ${{ secrets.ftp_password }}
+          exclude: |
+            **/vendor/**
 
       # Schritt 3: Composer auf dem Live-Server ausführen (Installieren der Abhängigkeiten)
       - name: Install Composer dependencies
