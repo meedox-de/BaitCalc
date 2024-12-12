@@ -11,10 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Schritt 1: Checkout des Repositorys
       - name: Checkout repository
         uses: actions/checkout@master
 
-      # Schritt 1: Dateien auf den Hosting-Server synchronisieren
+      # Schritt 2: Dateien auf den Hosting-Server synchronisieren (exkl. vendor)
       - name: Sync files to hosting
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
@@ -22,17 +23,46 @@ jobs:
           username: f0170c88
           password: ${{ secrets.ftp_password }}
 
-      # Schritt 2: Führe Migrationen auf dem Live-Server über SSH aus
+      # Schritt 3: Composer auf dem Live-Server ausführen (Installieren der Abhängigkeiten)
+      - name: Install Composer dependencies
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.ssh_host }}
+          username: ${{ secrets.ssh_username }}
+          password: ${{ secrets.ssh_password }}
+          port: 22
+          script: |
+            cd www/htdocs/w00866af/baitcalc.computer-area.net
+            
+            # Stelle sicher, dass Composer verfügbar ist, und führe install aus
+            if [ ! -f composer.phar ]; then
+              curl -sS https://getcomposer.org/installer | php
+            fi
+            
+            /usr/bin/php82 composer.phar install --no-dev --optimize-autoloader
+
+      # Schritt 4: Yii2-Migrationen auf dem Live-Server ausführen
       - name: Run Yii2 migrations on live server
         uses: appleboy/ssh-action@v0.1.5
         with:
           host: ${{ secrets.ssh_host }}
           username: ${{ secrets.ssh_username }}
-          password: ${{ secrets.ssh_password }} # Oder alternativ mit einem SSH Key
+          password: ${{ secrets.ssh_password }}
           port: 22
           script: |
             cd www/htdocs/w00866af/baitcalc.computer-area.net
-            
+
             /usr/bin/php82 yii migrate --interactive=0
+
+      # Schritt 5: Yii2-Cache leeren
+      - name: Flush Yii2 cache
+        uses: appleboy/ssh-action@v0.1.5
+        with:
+          host: ${{ secrets.ssh_host }}
+          username: ${{ secrets.ssh_username }}
+          password: ${{ secrets.ssh_password }}
+          port: 22
+          script: |
+            cd www/htdocs/w00866af/baitcalc.computer-area.net
             
             /usr/bin/php82 yii cache/flush-all
