@@ -59,6 +59,7 @@ class SiteController extends Controller
      */
     public function actionIndex() :mixed
     {
+
         return $this->render('index');
     }
 

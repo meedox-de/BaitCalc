@@ -2,54 +2,66 @@
 
 use yii\filters\AccessControl;
 
-$params = array_merge(
-    require __DIR__ . '/../../common/config/params.php',
-    require __DIR__ . '/../../common/config/params-local.php',
-    require __DIR__ . '/params.php',
-    require __DIR__ . '/params-local.php'
-);
+$params = array_merge( require __DIR__ . '/../../common/config/params.php', require __DIR__ . '/../../common/config/params-local.php', require __DIR__ . '/params.php', require __DIR__ . '/params-local.php' );
 
 return [
-    'id' => 'bait-calc',
-    'name' => 'Bait Calc',
-    'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'id'                  => 'bait-calc',
+    'name'                => 'Bait Calc',
+    'basePath'            => dirname( __DIR__ ),
+    'bootstrap'           => ['log'],
+    'language'            => 'de-DE',
     'controllerNamespace' => 'frontend\controllers',
-    'components' => [
-        'request' => [
+    'components'          => [
+        'request'      => [
             'csrfParam' => '_csrf-frontend',
         ],
-        'user' => [
-            'identityClass' => 'common\models\User',
+        'user'         => [
+            'identityClass'   => 'common\models\User',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity-frontend', 'httpOnly' => true],
+            'identityCookie'  => [
+                'name'     => '_identity-frontend',
+                'httpOnly' => true,
+            ],
         ],
-        'session' => [
+        'session'      => [
             // this is the name of the session cookie used for login on the frontend
             'name' => 'bait-calc',
         ],
-        'log' => [
+        'log'          => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
+            'targets'    => [
                 [
-                    'class' => \yii\log\FileTarget::class,
-                    'levels' => ['error', 'warning'],
+                    'class'  => \yii\log\FileTarget::class,
+                    'levels' => [
+                        'error',
+                        'warning',
+                    ],
                 ],
             ],
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-        'urlManager' => [
+        'urlManager'   => [
             'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => [
+            'showScriptName'  => false,
+            'rules'           => [],
+        ],
+        'i18n'         => [
+            'translations' => [
+                'app*' => [
+                    'class'          => 'yii\i18n\GettextMessageSource',
+                    'basePath'       => '@frontend/messages',
+                    'sourceLanguage' => 'en-US',
+                    'useMoFile'      => false,
+                    'catalog'        => 'messages',
+                ],
             ],
         ],
     ],
-    'as beforeRequest' => [
-        'class' => AccessControl::class,
-        'rules' => [
+    'as beforeRequest'    => [
+        'class'  => AccessControl::class,
+        'rules'  => [
             [
                 'allow' => true,
                 'roles' => ['@'],
@@ -67,5 +79,5 @@ return [
             'gii',
         ],
     ],
-    'params' => $params,
+    'params'              => $params,
 ];
