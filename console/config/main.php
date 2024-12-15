@@ -7,7 +7,6 @@ return [
     'basePath'            => dirname( __DIR__ ),
     'bootstrap'           => [
         'log',
-        'common\config\bootstrap',
     ],
     'controllerNamespace' => 'console\controllers',
     'aliases'             => [
