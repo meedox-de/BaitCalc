@@ -12,6 +12,11 @@ use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 
 AppAsset::register( $this );
+/*
+Yii::$app->language = Yii::$app->request->getPreferredLanguage( [
+                                                                    'en-US',
+                                                                    'de-DE',
+                                                                ] ); */
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -37,7 +42,10 @@ AppAsset::register( $this );
     <header>
         <?php
         NavBar::begin( [
-                           'brandLabel' => Html::img('@web/img/logo.png', ['alt'=>Yii::$app->name, 'style' => 'height: 30px;']) . ' ' . Yii::$app->name,
+                           'brandLabel' => Html::img( '@web/img/logo.png', [
+                                   'alt'   => Yii::$app->name,
+                                   'style' => 'height: 30px;',
+                               ] ) . ' ' . Yii::$app->name,
                            'brandUrl'   => Yii::$app->homeUrl,
                            'options'    => [
                                'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
@@ -52,7 +60,7 @@ AppAsset::register( $this );
         if( Yii::$app->user->isGuest )
         {
             $menuItems[] = [
-                'label' => 'Signup',
+                'label' => Yii::t( 'app', 'Signup' ),
                 'url'   => ['/site/signup'],
             ];
         }
