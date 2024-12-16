@@ -5,6 +5,7 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 use common\models\User;
+use yii\db\Exception;
 
 /**
  * Signup form
@@ -92,6 +93,7 @@ class SignupForm extends Model
      * Signs user up.
      *
      * @return bool whether the creating new account was successful and email was sent
+     * @throws Exception
      */
     public function signup()
     {
