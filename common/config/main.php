@@ -10,5 +10,16 @@ return [
         'cache' => [
             'class' => \yii\caching\FileCache::class,
         ],
+        'i18n'         => [
+            'translations' => [
+                'common' => [
+                    'class'          => 'yii\i18n\GettextMessageSource',
+                    'basePath'       => '@common/messages',
+                    'sourceLanguage' => 'en-US',
+                    'useMoFile'      => false,
+                    'catalog'        => 'messages',
+                ],
+            ],
+        ],
     ],
 ];

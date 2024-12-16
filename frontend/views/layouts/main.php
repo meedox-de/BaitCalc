@@ -60,7 +60,7 @@ Yii::$app->language = Yii::$app->request->getPreferredLanguage( [
         if( Yii::$app->user->isGuest )
         {
             $menuItems[] = [
-                'label' => Yii::t( 'app', 'Signup' ),
+                'label' => Yii::t( 'common', 'Signup' ),
                 'url'   => ['/site/signup'],
             ];
         }

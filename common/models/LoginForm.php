@@ -69,9 +69,9 @@ class LoginForm extends Model
     public function attributeLabels() :array
     {
         return [
-            'username'   => Yii::t( 'app', 'Email' ),
-            'password'   => Yii::t( 'app', 'Password' ),
-            'rememberMe' => Yii::t( 'app', 'Remember Me' ),
+            'username'   => Yii::t( 'common', 'Email' ),
+            'password'   => Yii::t( 'common', 'Password' ),
+            'rememberMe' => Yii::t( 'common', 'Remember Me' ),
         ];
     }
 
@@ -97,7 +97,7 @@ class LoginForm extends Model
      */
     protected function getUser() :?User
     {
-        if( is_null($this->_user) )
+        if( is_null( $this->_user ) )
         {
             $this->_user = User::findByUsername( $this->username );
         }

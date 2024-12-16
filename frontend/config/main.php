@@ -6,7 +6,7 @@ $params = array_merge( require __DIR__ . '/../../common/config/params.php', requ
 
 return [
     'id'                  => 'bait-calc',
-    'name'                => 'Bait Calc',
+    'name'                => 'BaitCalc',
     'basePath'            => dirname( __DIR__ ),
     'bootstrap'           => ['log'],
     'language'            => 'de-DE',
@@ -46,17 +46,6 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName'  => false,
             'rules'           => [],
-        ],
-        'i18n'         => [
-            'translations' => [
-                'app*' => [
-                    'class'          => 'yii\i18n\GettextMessageSource',
-                    'basePath'       => '@frontend/messages',
-                    'sourceLanguage' => 'en-US',
-                    'useMoFile'      => false,
-                    'catalog'        => 'messages',
-                ],
-            ],
         ],
     ],
     'as beforeRequest'    => [

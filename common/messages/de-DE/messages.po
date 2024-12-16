@@ -1,0 +1,104 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgctxt "common"
+msgid "Email"
+msgstr "E-Mail"
+
+msgctxt "common"
+msgid "If you forgot your password you can "
+msgstr "Hast du dein Passwort vergessen? Setze es "
+
+msgctxt "common"
+msgid "Login"
+msgstr "Login"
+
+msgctxt "common"
+msgid "Need new verification email?"
+msgstr "Bestätigungsmail erneut senden?"
+
+msgctxt "common"
+msgid "Password"
+msgstr "Passwort"
+
+msgctxt "common"
+msgid "Please choose your new password:"
+msgstr "Bitte gebe dein neues Passwort ein:"
+
+msgctxt "common"
+msgid "Please fill out the following fields to login:"
+msgstr "Bitte fülle die folgenden Felder aus, um dich anzumelden:"
+
+msgctxt "common"
+msgid "Please fill out the following fields to signup:"
+msgstr "Bitte fülle alle Felder aus um dich zu registrieren:"
+
+msgctxt "common"
+msgid "Please fill out your email. A link to reset password will be sent there."
+msgstr "Trage deine E-Mail ein und wir senden dir einen Link um dein Passwort zurückzusetzen."
+
+msgctxt "common"
+msgid "Please fill out your email. A verification email will be sent there."
+msgstr "Trage deine E-Mail ein, um eine neue Bestätigungsmail zu erhalten."
+
+msgctxt "common"
+msgid "Please login or signup to use the application."
+msgstr "Bitte logge dich ein, oder registriere dich, um BaitCalc nutzen zu können."
+
+msgctxt "common"
+msgid "Remember Me"
+msgstr "Angemeldet bleiben"
+
+msgctxt "common"
+msgid "Request password reset"
+msgstr "Passwort zurücksetzen"
+
+msgctxt "common"
+msgid "Resend"
+msgstr "Nochmal senden"
+
+msgctxt "common"
+msgid "Resend verification email"
+msgstr "Bestätigungsmail erneut senden"
+
+msgctxt "common"
+msgid "Reset password"
+msgstr "Passwort zurücksetzen"
+
+msgctxt "common"
+msgid "Save"
+msgstr "Speichern"
+
+msgctxt "common"
+msgid "Send"
+msgstr "Senden"
+
+msgctxt "common"
+msgid "Signup"
+msgstr "Registrieren"
+
+msgctxt "common"
+msgid "Welcome back, {user}"
+msgstr "Willkommen zurück, {user}"
+
+msgctxt "common"
+msgid "Welcome to BaitCalc"
+msgstr "Willkommen auf BaitCalc"
+
+msgctxt "common"
+msgid "You are now logged in."
+msgstr "Du bist eingeloggt"
+
+msgctxt "common"
+msgid "reset it"
+msgstr "hier zurück"
+
