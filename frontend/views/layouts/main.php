@@ -4,19 +4,21 @@
 
 /** @var string $content */
 
+
 use common\widgets\Alert;
 use frontend\assets\AppAsset;
+
 use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
 
 AppAsset::register( $this );
-/*
+
 Yii::$app->language = Yii::$app->request->getPreferredLanguage( [
                                                                     'en-US',
                                                                     'de-DE',
-                                                                ] ); */
+                                                                ] );
 ?>
 <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -27,6 +29,8 @@ Yii::$app->language = Yii::$app->request->getPreferredLanguage( [
         <?php $this->registerCsrfMetaTags() ?>
         <title><?= Html::encode( $this->title ) ?></title>
         <?php $this->head() ?>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
         <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96"/>
         <link rel="icon" type="image/svg+xml" href="/img/favicon.svg"/>
@@ -62,6 +66,13 @@ Yii::$app->language = Yii::$app->request->getPreferredLanguage( [
             $menuItems[] = [
                 'label' => Yii::t( 'common', 'Signup' ),
                 'url'   => ['/site/signup'],
+            ];
+        }
+        if( !Yii::$app->user->isGuest )
+        {
+            $menuItems[] = [
+                'label' => Yii::t( 'common', 'Ingredients' ),
+                'url'   => ['/ingredient/index'],
             ];
         }
 
