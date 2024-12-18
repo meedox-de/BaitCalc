@@ -90,13 +90,14 @@ class IngredientController extends Controller
     {
         $model = $this->findModel( $id );
 
-        if( $this->request->isPost && $model->load( $this->request->post() ) && $model->save() )
+        if( $this->request->isPost )
         {
-            Yii::$app->session->setFlash( 'success', Yii::t( 'common', 'The ingredient has been saved.' ) );
-            return $this->redirect( ['index'] );
-        }
-        else
-        {
+            if( $model->load( $this->request->post() ) && $model->save() )
+            {
+                Yii::$app->session->setFlash( 'success', Yii::t( 'common', 'The ingredient has been saved.' ) );
+                return $this->redirect( ['index'] );
+            }
+
             Yii::$app->session->setFlash( 'error', Yii::t( 'common', 'An error occurred while saving the ingredient.' ) );
         }
 

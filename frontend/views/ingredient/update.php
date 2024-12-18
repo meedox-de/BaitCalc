@@ -9,8 +9,7 @@ $this->title = Yii::t('common', 'Update Ingredient: {name}', [
     'name' => $model->name,
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('common', 'Ingredients'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = Yii::t('common', 'Update');
+$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="ingredient-update">
 

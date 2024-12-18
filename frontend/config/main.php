@@ -47,6 +47,7 @@ return [
             'showScriptName'  => false,
             'rules'           => [],
         ],
+
     ],
     'as beforeRequest'    => [
         'class'  => AccessControl::class,

@@ -1,16 +1,17 @@
 <?php
 
+use yii\bootstrap5\ActiveForm;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
 /** @var common\models\Ingredient $model */
-/** @var yii\widgets\ActiveForm $form */
+/** @var ActiveForm $form */
+
 ?>
 
 <div class="ingredient-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['layout' => ActiveForm::LAYOUT_HORIZONTAL]); ?>
 
     <?= $form->field( $model, 'name' )->textInput( ['maxlength' => true] ) ?>
 
