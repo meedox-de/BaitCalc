@@ -38,6 +38,7 @@ class IngredientController extends Controller
      */
     public function actionIndex() :string
     {
+        dd("test");
         $searchModel  = new ingredientSearch();
         $dataProvider = $searchModel->search( $this->request->queryParams );
 
@@ -132,7 +133,7 @@ class IngredientController extends Controller
      * @return Ingredient the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id) :Ingredient
+    protected function findModel(int $id) :Ingredient
     {
         if( ($model = Ingredient::findOne( ['id' => $id] )) !== null )
         {
