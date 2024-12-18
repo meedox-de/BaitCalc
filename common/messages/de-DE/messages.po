@@ -11,20 +11,64 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgctxt "common"
+msgid "An error occurred while saving the ingredient."
+msgstr "Beim speichern der Zutat ist ein Fehler aufgetreten."
+
+msgctxt "common"
+msgid "Cancel"
+msgstr "Abbrechen"
+
+msgctxt "common"
+msgid "Carbohydrate"
+msgstr "Kohlenhydrate"
+
+msgctxt "common"
+msgid "Create Ingredient"
+msgstr "Neue Zutat"
+
+msgctxt "common"
+msgid "Created At"
+msgstr "Erstellt am"
+
+msgctxt "common"
+msgid "Delete"
+msgstr "Löschen"
+
+msgctxt "common"
 msgid "Email"
 msgstr "E-Mail"
+
+msgctxt "common"
+msgid "Fat"
+msgstr "Fett"
+
+msgctxt "common"
+msgid "ID"
+msgstr "ID"
 
 msgctxt "common"
 msgid "If you forgot your password you can "
 msgstr "Hast du dein Passwort vergessen? Setze es "
 
 msgctxt "common"
+msgid "Ingredients"
+msgstr "Zutaten"
+
+msgctxt "common"
 msgid "Login"
 msgstr "Login"
 
 msgctxt "common"
+msgid "Name"
+msgstr "Name"
+
+msgctxt "common"
 msgid "Need new verification email?"
 msgstr "Bestätigungsmail erneut senden?"
+
+msgctxt "common"
+msgid "Note"
+msgstr "Bemerkung"
 
 msgctxt "common"
 msgid "Password"
@@ -55,6 +99,10 @@ msgid "Please login or signup to use the application."
 msgstr "Bitte logge dich ein, oder registriere dich, um BaitCalc nutzen zu können."
 
 msgctxt "common"
+msgid "Protein"
+msgstr "Protein"
+
+msgctxt "common"
 msgid "Remember Me"
 msgstr "Angemeldet bleiben"
 
@@ -71,6 +119,10 @@ msgid "Resend verification email"
 msgstr "Bestätigungsmail erneut senden"
 
 msgctxt "common"
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+msgctxt "common"
 msgid "Reset password"
 msgstr "Passwort zurücksetzen"
 
@@ -79,12 +131,48 @@ msgid "Save"
 msgstr "Speichern"
 
 msgctxt "common"
+msgid "Search"
+msgstr "Suchen"
+
+msgctxt "common"
 msgid "Send"
 msgstr "Senden"
 
 msgctxt "common"
 msgid "Signup"
 msgstr "Registrieren"
+
+msgctxt "common"
+msgid "The ingredient has been deleted."
+msgstr "Die Zutat wurde gelöscht."
+
+msgctxt "common"
+msgid "The ingredient has been saved."
+msgstr "Die Zutat wurde gespeichert."
+
+msgctxt "common"
+msgid "The requested page does not exist."
+msgstr "Die gewünschte Seite existiert nicht."
+
+msgctxt "common"
+msgid "Update"
+msgstr "Bearbeiten"
+
+msgctxt "common"
+msgid "Update Ingredient: \"{name}\""
+msgstr "Zutat bearbeiten: \"{name}\""
+
+msgctxt "common"
+msgid "Updated At"
+msgstr "Geändert am"
+
+msgctxt "common"
+msgid "User ID"
+msgstr "User ID"
+
+msgctxt "common"
+msgid "Username"
+msgstr "Username"
 
 msgctxt "common"
 msgid "Welcome back, {user}"

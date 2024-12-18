@@ -24,6 +24,7 @@ use yii\helpers\Html;
     <?= $form->field( $model, 'note' )->textarea( ['rows' => 6] ) ?>
 
     <div class="form-group">
+        <?= Html::a( Yii::t( 'common', 'Cancel' ), ['index'], ['class' => 'btn btn-outline-danger'] ) ?>
         <?= Html::submitButton( Yii::t( 'common', 'Save' ), ['class' => 'btn btn-success'] ) ?>
     </div>
 

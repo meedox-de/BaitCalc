@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /** @var yii\web\View $this */
 /** @var common\models\Ingredient $model */
 
-$this->title = Yii::t('common', 'Update Ingredient: {name}', [
+$this->title = Yii::t('common', 'Update Ingredient: "{name}"', [
     'name' => $model->name,
 ]);
 $this->params['breadcrumbs'][] = ['label' => Yii::t('common', 'Ingredients'), 'url' => ['index']];

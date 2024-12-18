@@ -17,7 +17,7 @@ class IngredientSearch extends Ingredient
     {
         // @formatter:off
         return [
-            [['name', 'note'], 'safe'],
+            [['name'], 'safe'],
             [['protein', 'fat', 'carbohydrate'], 'number'],
         ];
         // @formatter:on
@@ -69,11 +69,11 @@ class IngredientSearch extends Ingredient
                                     'like',
                                     'name',
                                     $this->name,
-                                ] )->andFilterWhere( [
-                                                         'like',
-                                                         'note',
-                                                         $this->note,
-                                                     ] );
+                                ] );
+
+        $query->orderBy( [
+                             'name' => SORT_ASC,
+                         ] );
 
         return $dataProvider;
     }

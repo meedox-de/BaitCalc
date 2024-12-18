@@ -52,14 +52,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                       'buttons' => [
                                           'update' => function ($url, $model, $key) {
                                               return Html::a(
-                                                  '<span class="badge bg-primary"><i class="bi bi-pencil"></i> Edit</span>',
+                                                  '<span class="badge bg-primary"><i class="bi bi-pencil"></i> ' . Yii::t( 'common', 'Update' ) . '</span>',
                                                   $url,
                                                   ['title' => 'Edit', 'data-pjax' => '0']
                                               );
                                           },
                                           'delete' => function ($url, $model, $key) {
                                               return Html::a(
-                                                  '<span class="badge bg-danger"><i class="bi bi-trash"></i> Delete</span>',
+                                                  '<span class="badge bg-danger"><i class="bi bi-trash"></i> ' . Yii::t( 'common', 'Delete' ) . '</span>',
                                                   $url,
                                                   [
                                                       'title' => 'Delete',
