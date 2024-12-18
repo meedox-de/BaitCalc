@@ -38,7 +38,6 @@ class IngredientController extends Controller
      */
     public function actionIndex() :string
     {
-        dd("test");
         $searchModel  = new ingredientSearch();
         $dataProvider = $searchModel->search( $this->request->queryParams );
 
