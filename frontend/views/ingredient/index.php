@@ -1,15 +1,15 @@
 <?php
 
 use common\models\Ingredient;
+use common\models\IngredientSearch;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
-use yii\helpers\Url;
 use yii\widgets\Pjax;
 
 /** @var yii\web\View $this */
-/** @var \common\models\ingredientSearch $searchModel */
+/** @var IngredientSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title                   = Yii::t( 'common', 'Ingredients' );

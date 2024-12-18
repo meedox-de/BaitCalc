@@ -3,7 +3,7 @@
 namespace frontend\controllers;
 
 use common\models\Ingredient;
-use common\models\ingredientSearch;
+use common\models\IngredientSearch;
 use Yii;
 use yii\db\Exception;
 use yii\filters\VerbFilter;
@@ -38,7 +38,7 @@ class IngredientController extends Controller
      */
     public function actionIndex() :string
     {
-        $searchModel  = new ingredientSearch();
+        $searchModel  = new IngredientSearch();
         $dataProvider = $searchModel->search( $this->request->queryParams );
 
         return $this->render( 'index', [

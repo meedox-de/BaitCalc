@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 /**
  * modelsIngredientSearch represents the model behind the search form of `common\models\Ingredient`.
  */
-class ingredientSearch extends Ingredient
+class IngredientSearch extends Ingredient
 {
     /**
      * {@inheritdoc}

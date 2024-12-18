@@ -15,7 +15,6 @@ $this->title = $name;
 
     <div class="alert alert-danger">
         <?= nl2br(Html::encode($message)) ?>
-        <?= nl2br(Html::encode($exception)) ?>
     </div>
 
     <p>
