@@ -15,6 +15,18 @@ msgid "An error occurred while saving the ingredient."
 msgstr "Beim speichern der Zutat ist ein Fehler aufgetreten."
 
 msgctxt "common"
+msgid "An error occurred while saving the recipe."
+msgstr "Beim speichern des Rezepts ist ein Fehler aufgetreten."
+
+msgctxt "common"
+msgid "Are you sure you want to delete this item?"
+msgstr "Möchtest du dieses Element wirklich löschen?"
+
+msgctxt "common"
+msgid "Back to Recipes"
+msgstr "Zurück zu den Rezepten"
+
+msgctxt "common"
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -27,12 +39,20 @@ msgid "Create Ingredient"
 msgstr "Neue Zutat"
 
 msgctxt "common"
+msgid "Create Recipe"
+msgstr "Neues Rezept"
+
+msgctxt "common"
 msgid "Created At"
 msgstr "Erstellt am"
 
 msgctxt "common"
 msgid "Delete"
 msgstr "Löschen"
+
+msgctxt "common"
+msgid "Description"
+msgstr "Beschreibung"
 
 msgctxt "common"
 msgid "Email"
@@ -49,6 +69,10 @@ msgstr "ID"
 msgctxt "common"
 msgid "If you forgot your password you can "
 msgstr "Hast du dein Passwort vergessen? Setze es "
+
+msgctxt "common"
+msgid "Ingredient ID"
+msgstr "Zutat ID"
 
 msgctxt "common"
 msgid "Ingredients"
@@ -103,6 +127,18 @@ msgid "Protein"
 msgstr "Protein"
 
 msgctxt "common"
+msgid "Quantity"
+msgstr "Anzahl"
+
+msgctxt "common"
+msgid "Recipe ID"
+msgstr "Rezept ID"
+
+msgctxt "common"
+msgid "Recipes"
+msgstr "Rezepte"
+
+msgctxt "common"
 msgid "Remember Me"
 msgstr "Angemeldet bleiben"
 
@@ -151,6 +187,10 @@ msgid "The ingredient has been saved."
 msgstr "Die Zutat wurde gespeichert."
 
 msgctxt "common"
+msgid "The recipe has been saved."
+msgstr "Das Rezept wurde gespeichert."
+
+msgctxt "common"
 msgid "The requested page does not exist."
 msgstr "Die gewünschte Seite existiert nicht."
 
@@ -163,6 +203,10 @@ msgid "Update Ingredient: \"{name}\""
 msgstr "Zutat bearbeiten: \"{name}\""
 
 msgctxt "common"
+msgid "Update Recipe: \"{name}\""
+msgstr "Rezept bearbeiten: \"{name}\""
+
+msgctxt "common"
 msgid "Updated At"
 msgstr "Geändert am"
 
@@ -173,6 +217,10 @@ msgstr "User ID"
 msgctxt "common"
 msgid "Username"
 msgstr "Username"
+
+msgctxt "common"
+msgid "View"
+msgstr "Ansicht"
 
 msgctxt "common"
 msgid "Welcome back, {user}"
