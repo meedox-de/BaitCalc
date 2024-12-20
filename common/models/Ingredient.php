@@ -23,6 +23,9 @@ use yii\db\ActiveQuery;
  */
 class Ingredient extends \yii\db\ActiveRecord
 {
+    public const MAX_NAME_LENGTH = 255;
+
+
     /**
      * {@inheritdoc}
      */
@@ -43,7 +46,7 @@ class Ingredient extends \yii\db\ActiveRecord
             [['protein', 'fat', 'carbohydrate'], 'number'],
             [['note'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
-            [['name'], 'string', 'max' => 255],
+            [['name'], 'string', 'max' => self::MAX_NAME_LENGTH],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
         // @formatter:on

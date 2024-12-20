@@ -7,9 +7,9 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
 /**
- * modelsIngredientSearch represents the model behind the search form of `common\models\Ingredient`.
+ * RecipeSearch represents the model behind the search form of `common\models\Recipe`.
  */
-class IngredientSearch extends Ingredient
+class RecipeSearch extends Recipe
 {
     /**
      * {@inheritdoc}
@@ -18,8 +18,7 @@ class IngredientSearch extends Ingredient
     {
         // @formatter:off
         return [
-            [['name'], 'safe'],
-            [['protein', 'fat', 'carbohydrate'], 'number'],
+            [['name'], 'safe',],
         ];
         // @formatter:on
     }
@@ -40,9 +39,9 @@ class IngredientSearch extends Ingredient
      *
      * @return ActiveDataProvider
      */
-    public function search($params) :ActiveDataProvider
+    public function search(array $params) :ActiveDataProvider
     {
-        $query = Ingredient::find();
+        $query = Recipe::find();
 
         // add conditions that should always apply here
 
@@ -60,11 +59,8 @@ class IngredientSearch extends Ingredient
         }
 
         // grid filtering conditions
-        $query->andFilterWhere( [#
+        $query->andFilterWhere( [
                                     'user_id' => Yii::$app->user->id,
-                                    'protein'      => $this->protein,
-                                    'fat'          => $this->fat,
-                                    'carbohydrate' => $this->carbohydrate,
                                 ] );
 
         $query->andFilterWhere( [
@@ -72,10 +68,6 @@ class IngredientSearch extends Ingredient
                                     'name',
                                     $this->name,
                                 ] );
-
-        $query->orderBy( [
-                             'name' => SORT_ASC,
-                         ] );
 
         return $dataProvider;
     }

@@ -75,6 +75,10 @@ Yii::$app->language = Yii::$app->request->getPreferredLanguage( [
                 'label' => Yii::t( 'common', 'Ingredients' ),
                 'url'   => ['/ingredient/index'],
             ];
+            $menuItems[] = [
+                'label' => Yii::t( 'common', 'Recipes' ),
+                'url'   => ['/recipe/index'],
+            ];
         }
 
         echo Nav::widget( [

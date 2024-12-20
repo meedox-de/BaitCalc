@@ -1,26 +1,26 @@
 <?php
 
-use common\models\IngredientSearch;
-use yii\grid\ActionColumn;
-use yii\grid\GridView;
+use common\models\Recipe;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
+use yii\helpers\Url;
+use yii\grid\ActionColumn;
+use yii\grid\GridView;
 use yii\widgets\Pjax;
 
 /** @var yii\web\View $this */
-/** @var IngredientSearch $searchModel */
+/** @var common\models\RecipeSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title                   = Yii::t( 'common', 'Ingredients' );
+$this->title                   = Yii::t( 'common', 'Recipes' );
 $this->params['breadcrumbs'][] = $this->title;
-
 ?>
-<div class="ingredient-index">
+<div class="recipe-index">
 
     <h1><?= Html::encode( $this->title ) ?></h1>
 
     <p>
-        <?= Html::a( '<i class="bi bi-plus-square-dotted"></i> ' . Yii::t( 'common', 'Create Ingredient' ), ['create'], ['class' => 'btn btn-success'] ) ?>
+        <?= Html::a( Yii::t( 'common', 'Create Recipe' ), ['create'], ['class' => 'btn btn-success'] ) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -32,9 +32,12 @@ $this->params['breadcrumbs'][] = $this->title;
                               'columns'      => [
                                   ['class' => 'yii\grid\SerialColumn'],
                                   'name',
-                                  'protein',
-                                  'fat',
-                                  'carbohydrate',
+                                  [
+                                      'attribute' => 'description',
+                                      'value'     => function($model) {
+                                          return StringHelper::truncate( $model->note, 20, '...' );
+                                      },
+                                  ],
                                   [
                                       'attribute' => 'note',
                                       'value'     => function($model) {
@@ -47,8 +50,14 @@ $this->params['breadcrumbs'][] = $this->title;
                                   ],
                                   [
                                       'class'    => ActionColumn::class,
-                                      'template' => '{update} {delete}',
+                                      'template' => '{view} {update} {delete}',
                                       'buttons'  => [
+                                          'view'   => function($url, $model, $key) {
+                                              return Html::a( '<span class="badge bg-secondary"><i class="bi bi-eye"></i> ' . Yii::t( 'common', 'View' ) . '</span>', $url, [
+                                                                                                                                                                   'title'     => 'View',
+                                                                                                                                                                   'data-pjax' => '0',
+                                                                                                                                                               ] );
+                                          },
                                           'update' => function($url, $model, $key) {
                                               return Html::a( '<span class="badge bg-primary"><i class="bi bi-pencil"></i> ' . Yii::t( 'common', 'Update' ) . '</span>', $url, [
                                                                                                                                                                            'title'     => 'Edit',
@@ -58,7 +67,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                           'delete' => function($url, $model, $key) {
                                               return Html::a( '<span class="badge bg-danger"><i class="bi bi-trash"></i> ' . Yii::t( 'common', 'Delete' ) . '</span>', $url, [
                                                                                                                                                                          'title'        => 'Delete',
-                                                                                                                                                                         'data-confirm' => Yii::t( 'common', 'Are you sure you want to delete this item?' ),
+                                                                                                                                                                         'data-confirm' => Yii::t('common', 'Are you sure you want to delete this item?'),
                                                                                                                                                                          'data-method'  => 'post',
                                                                                                                                                                      ] );
                                           },
