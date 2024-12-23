@@ -4,7 +4,6 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Category;
 
 /**
  * CategorySearch represents the model behind the search form of `common\models\Category`.
@@ -18,7 +17,6 @@ class CategorySearch extends Category
     {
         // @formatter:off
         return [
-            [['user_id'], 'integer'],
             [['name'], 'safe'],
         ];
         // @formatter:on
@@ -45,9 +43,14 @@ class CategorySearch extends Category
         $query = Category::find();
 
         // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider( [
                                                     'query' => $query,
+                                                    'sort'  => [
+                                                        'attributes' => [
+                                                            'name',
+                                                            'created_at',
+                                                        ],
+                                                    ],
                                                 ] );
 
         $this->load( $params );
@@ -55,7 +58,7 @@ class CategorySearch extends Category
         if( !$this->validate() )
         {
             // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
+            $query->where( '0=1' );
             return $dataProvider;
         }
 

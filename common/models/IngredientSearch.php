@@ -44,25 +44,38 @@ class IngredientSearch extends Ingredient
         $query = Ingredient::find();
 
         // add conditions that should always apply here
+        $query->leftJoin( 'category', 'category.id = ingredient.category_id' );
 
         $dataProvider = new ActiveDataProvider( [
                                                     'query' => $query,
+                                                    'sort'  => [
+                                                        'attributes' => [
+                                                            'name',
+                                                            'protein',
+                                                            'fat',
+                                                            'carbohydrate',
+                                                            'created_at',
+                                                            'category_id' => [
+                                                                'asc'     => ['category.name' => SORT_ASC],
+                                                                'desc'    => ['category.name' => SORT_DESC],
+                                                                'default' => SORT_ASC,
+                                                            ],
+                                                        ],
+                                                    ],
                                                 ] );
-
-        $query->leftJoin( 'category', 'category.id = ingredient.category_id' );
 
         $this->load( $params );
 
         if( !$this->validate() )
         {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
+            // on validation error return empty data set
+            $query->where( '0=1' );
             return $dataProvider;
         }
 
-        // grid filtering conditions
-        $query->andFilterWhere( [#
-                                    'ingredient.user_id'      => Yii::$app->user->id,
+        // filtering
+        $query->andFilterWhere( [
+                                    'ingredient.user_id' => Yii::$app->user->id,
                                 ] );
 
         $query->andFilterWhere( [
@@ -70,10 +83,6 @@ class IngredientSearch extends Ingredient
                                     'ingredient.name',
                                     $this->name,
                                 ] );
-
-        $query->orderBy( [
-                             'ingredient.name' => SORT_ASC,
-                         ] );
 
         return $dataProvider;
     }
