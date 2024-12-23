@@ -72,6 +72,10 @@ Yii::$app->language = Yii::$app->request->getPreferredLanguage( [
         if( !Yii::$app->user->isGuest )
         {
             $menuItems[] = [
+                'label' => Yii::t( 'common', 'Categories' ),
+                'url'   => ['/category/index'],
+            ];
+            $menuItems[] = [
                 'label' => Yii::t( 'common', 'Ingredients' ),
                 'url'   => ['/ingredient/index'],
             ];

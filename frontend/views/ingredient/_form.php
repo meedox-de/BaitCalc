@@ -11,9 +11,11 @@ use yii\helpers\Html;
 
 <div class="ingredient-form">
 
-    <?php $form = ActiveForm::begin(['layout' => ActiveForm::LAYOUT_HORIZONTAL]); ?>
+    <?php $form = ActiveForm::begin( ['layout' => ActiveForm::LAYOUT_HORIZONTAL] ); ?>
 
     <?= $form->field( $model, 'name' )->textInput( ['maxlength' => true] ) ?>
+
+    <?= $form->field( $model, 'category_id' )->dropDownList( $model->getCategoryList() ) ?>
 
     <?= $form->field( $model, 'protein' )->textInput( ['maxlength' => true] ) ?>
 

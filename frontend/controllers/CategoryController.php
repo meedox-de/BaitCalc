@@ -2,21 +2,21 @@
 
 namespace frontend\controllers;
 
-use common\models\Ingredient;
-use common\models\IngredientSearch;
+use common\models\Category;
+use common\models\CategorySearch;
 use Throwable;
 use Yii;
 use yii\db\Exception;
 use yii\db\StaleObjectException;
-use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\filters\VerbFilter;
 use yii\web\Response;
 
 /**
- * IngredientController implements the CRUD actions for Ingredient model.
+ * CategoryController implements the CRUD actions for Category model.
  */
-class IngredientController extends Controller
+class CategoryController extends Controller
 {
     /**
      * @inheritDoc
@@ -34,13 +34,13 @@ class IngredientController extends Controller
     }
 
     /**
-     * Lists all Ingredient models.
+     * Lists all Category models.
      *
      * @return string
      */
     public function actionIndex() :string
     {
-        $searchModel  = new IngredientSearch();
+        $searchModel  = new CategorySearch();
         $dataProvider = $searchModel->search( $this->request->queryParams );
 
         return $this->render( 'index', [
@@ -50,7 +50,7 @@ class IngredientController extends Controller
     }
 
     /**
-     * Creates a new Ingredient model.
+     * Creates a new Category model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      *
      * @return string|Response
@@ -58,19 +58,19 @@ class IngredientController extends Controller
      */
     public function actionCreate() :Response|string
     {
-        $model = new Ingredient();
+        $model = new Category();
 
-        if( $model->load( Yii::$app->request->post() ) )
+        if( $model->load( $this->request->post() ) )
         {
             $model->user_id = Yii::$app->user->id;
 
             if( $model->save() )
             {
-                Yii::$app->session->setFlash( 'success', Yii::t( 'common', 'The ingredient has been saved.' ) );
+                Yii::$app->session->setFlash( 'success', Yii::t( 'common', 'The category has been saved.' ) );
                 return $this->redirect( ['index'] );
             }
 
-            Yii::$app->session->setFlash( 'error', Yii::t( 'common', 'An error occurred while saving the ingredient.' ) );
+            Yii::$app->session->setFlash( 'error', Yii::t( 'common', 'An error occurred while saving the category.' ) );
         }
 
         return $this->render( 'create', [
@@ -79,7 +79,7 @@ class IngredientController extends Controller
     }
 
     /**
-     * Updates an existing Ingredient model.
+     * Updates an existing Category model.
      * If update is successful, the browser will be redirected to the 'view' page.
      *
      * @param int $id ID
@@ -96,11 +96,11 @@ class IngredientController extends Controller
         {
             if( $model->load( $this->request->post() ) && $model->save() )
             {
-                Yii::$app->session->setFlash( 'success', Yii::t( 'common', 'The ingredient has been saved.' ) );
+                Yii::$app->session->setFlash( 'success', Yii::t( 'common', 'The category has been saved.' ) );
                 return $this->redirect( ['index'] );
             }
 
-            Yii::$app->session->setFlash( 'error', Yii::t( 'common', 'An error occurred while saving the ingredient.' ) );
+            Yii::$app->session->setFlash( 'error', Yii::t( 'common', 'An error occurred while saving the category.' ) );
         }
 
         return $this->render( 'update', [
@@ -109,7 +109,7 @@ class IngredientController extends Controller
     }
 
     /**
-     * Deletes an existing Ingredient model.
+     * Deletes an existing Category model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      *
      * @param int $id ID
@@ -122,28 +122,28 @@ class IngredientController extends Controller
         try
         {
             $this->findModel( $id )->delete();
-            Yii::$app->session->setFlash( 'success', Yii::t( 'common', 'The ingredient has been deleted.' ) );
+            Yii::$app->session->setFlash( 'success', Yii::t( 'common', 'The category has been deleted.' ) );
         }
         catch( Throwable $e )
         {
-            Yii::$app->session->setFlash( 'error', Yii::t( 'common', 'An error occurred while deleting the ingredient.' ) );
+            Yii::$app->session->setFlash( 'error', Yii::t( 'common', 'An error occurred while deleting the category.' ) );
         }
 
         return $this->redirect( ['index'] );
     }
 
     /**
-     * Finds the Ingredient model based on its primary key value.
+     * Finds the Category model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      *
      * @param int $id ID
      *
-     * @return Ingredient the loaded model
+     * @return Category the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel(int $id) :Ingredient
+    protected function findModel(int $id) :Category
     {
-        if( ($model = Ingredient::findOne( ['id' => $id] )) !== null )
+        if( ($model = Category::findOne( ['id' => $id] )) !== null )
         {
             return $model;
         }

@@ -2,14 +2,14 @@
 
 namespace common\models;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use common\models\Category;
 
 /**
- * modelsIngredientSearch represents the model behind the search form of `common\models\Ingredient`.
+ * CategorySearch represents the model behind the search form of `common\models\Category`.
  */
-class IngredientSearch extends Ingredient
+class CategorySearch extends Category
 {
     /**
      * {@inheritdoc}
@@ -18,6 +18,7 @@ class IngredientSearch extends Ingredient
     {
         // @formatter:off
         return [
+            [['user_id'], 'integer'],
             [['name'], 'safe'],
         ];
         // @formatter:on
@@ -41,15 +42,13 @@ class IngredientSearch extends Ingredient
      */
     public function search(array $params) :ActiveDataProvider
     {
-        $query = Ingredient::find();
+        $query = Category::find();
 
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider( [
                                                     'query' => $query,
                                                 ] );
-
-        $query->leftJoin( 'category', 'category.id = ingredient.category_id' );
 
         $this->load( $params );
 
@@ -61,19 +60,15 @@ class IngredientSearch extends Ingredient
         }
 
         // grid filtering conditions
-        $query->andFilterWhere( [#
-                                    'ingredient.user_id'      => Yii::$app->user->id,
+        $query->andFilterWhere( [
+                                    'user_id' => $this->user_id,
                                 ] );
 
         $query->andFilterWhere( [
                                     'like',
-                                    'ingredient.name',
+                                    'name',
                                     $this->name,
                                 ] );
-
-        $query->orderBy( [
-                             'ingredient.name' => SORT_ASC,
-                         ] );
 
         return $dataProvider;
     }

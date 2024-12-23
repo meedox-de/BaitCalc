@@ -32,6 +32,11 @@ $this->params['breadcrumbs'][] = $this->title;
                               'columns'      => [
                                   ['class' => 'yii\grid\SerialColumn'],
                                   'name',
+                                  [
+                                      'attribute' => 'category_id',
+                                      'value'     => 'category.name',
+                                      'label'     => Yii::t( 'common', 'Category' ),
+                                  ],
                                   'protein',
                                   'fat',
                                   'carbohydrate',
@@ -43,7 +48,10 @@ $this->params['breadcrumbs'][] = $this->title;
                                   ],
                                   [
                                       'attribute' => 'created_at',
-                                      'format'    => ['date', 'php:d.m.Y H:i'],
+                                      'format'    => [
+                                          'date',
+                                          'php:d.m.Y H:i',
+                                      ],
                                   ],
                                   [
                                       'class'    => ActionColumn::class,
@@ -51,16 +59,16 @@ $this->params['breadcrumbs'][] = $this->title;
                                       'buttons'  => [
                                           'update' => function($url, $model, $key) {
                                               return Html::a( '<span class="badge bg-primary"><i class="bi bi-pencil"></i> ' . Yii::t( 'common', 'Update' ) . '</span>', $url, [
-                                                                                                                                                                           'title'     => 'Edit',
-                                                                                                                                                                           'data-pjax' => '0',
-                                                                                                                                                                       ] );
+                                                  'title'     => 'Edit',
+                                                  'data-pjax' => '0',
+                                              ] );
                                           },
                                           'delete' => function($url, $model, $key) {
                                               return Html::a( '<span class="badge bg-danger"><i class="bi bi-trash"></i> ' . Yii::t( 'common', 'Delete' ) . '</span>', $url, [
-                                                                                                                                                                         'title'        => 'Delete',
-                                                                                                                                                                         'data-confirm' => Yii::t( 'common', 'Are you sure you want to delete this item?' ),
-                                                                                                                                                                         'data-method'  => 'post',
-                                                                                                                                                                     ] );
+                                                  'title'        => 'Delete',
+                                                  'data-confirm' => Yii::t( 'common', 'Are you sure you want to delete this item?' ),
+                                                  'data-method'  => 'post',
+                                              ] );
                                           },
                                       ],
                                   ],
