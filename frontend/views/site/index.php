@@ -10,7 +10,7 @@ require_once(Yii::getAlias( '@frontend/config/version_info.php' ));
 /* @var $versionInfo array */
 ?>
 <div class="site-index">
-    <div class=" mb-3 bg-transparent rounded-3">
+    <div class="bg-transparent rounded-3">
         <div class="container-fluid py-5 text-center">
             <?php if( Yii::$app->user->isGuest ): ?>
                 <h1 class="display-4"><?= Yii::t( 'common', 'Welcome to BaitCalc' ) ?></h1>
