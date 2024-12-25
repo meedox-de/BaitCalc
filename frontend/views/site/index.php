@@ -30,7 +30,7 @@ require_once(Yii::getAlias( '@frontend/config/version_info.php' ));
             <div class="row">
 
                 <div class="col-12 col-md-6">
-                    <h3><?= Yii::t('common', 'Hey,'); ?></h3>
+                    <h5><?= Yii::t('common', 'Hey,'); ?></h5>
 
                     <p><?= Yii::t('common', 'great to have you here! BaitCalc is here to help you manage your bait recipes quickly and easily.'); ?></p>
                     <p><?= Yii::t('common', 'If you have any questions or something doesn’t work as expected, just drop me an email at <strong>{email}</strong>. I’ll be happy to help!', ['email' => Yii::$app->params['adminEmail']]); ?></p>
@@ -41,7 +41,7 @@ require_once(Yii::getAlias( '@frontend/config/version_info.php' ));
                     <?php endif; ?>
                 </div>
 
-                <div class="col-12 col-md-1"></div>
+                <div class="col-12 col-md-1 m-5 m-md-0"></div>
 
                 <div class="col-12 col-md-5">
                     <h3>Versionsinfo</h3>
