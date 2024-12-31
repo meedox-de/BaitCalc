@@ -15,7 +15,7 @@ use yii\helpers\Html;
 
     <?= $form->field( $model, 'name' )->textInput( ['maxlength' => true] ) ?>
 
-    <?= $form->field( $model, 'category_id' )->dropDownList( $model->getCategoryList() ) ?>
+    <?= $form->field( $model, 'category_id')->dropDownList( $model->getCategoryList() )->label(Yii::t('common', 'Category')) ?>
 
     <?= $form->field( $model, 'protein' )->textInput( ['maxlength' => true] ) ?>
 

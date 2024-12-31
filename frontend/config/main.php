@@ -66,6 +66,7 @@ return [
             'site/resend-verification-email',
             'site/request-password-reset',
             'site/reset-password',
+            'site/verify-email',
             'gii',
         ],
     ],

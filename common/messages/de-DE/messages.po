@@ -10,6 +10,46 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+msgctxt "app"
+msgid "Category ID"
+msgstr "Kategorie ID"
+
+msgctxt "app"
+msgid "Created At"
+msgstr "Erstellt am"
+
+msgctxt "app"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "app"
+msgid "Name"
+msgstr "Name"
+
+msgctxt "app"
+msgid "Updated At"
+msgstr "Geändert am"
+
+msgctxt "app"
+msgid "User ID"
+msgstr "Benutzer ID"
+
+msgctxt "common"
+msgid "Add calculating of fat, protein and carbohydrate in recipe view."
+msgstr "Berechnung von Fett, Protein und Kohlenhydraten im Rezept anzeigen."
+
+msgctxt "common"
+msgid "An error occurred while deleting the category."
+msgstr "Beim löschen der Kategorie ist ein Fehler aufgetreten."
+
+msgctxt "common"
+msgid "An error occurred while deleting the ingredient."
+msgstr "Beim löschen der Zutat ist ein Fehler aufgetreten."
+
+msgctxt "common"
+msgid "An error occurred while saving the category."
+msgstr "Beim speichern der Kategorie ist ein Fehler aufgetreten."
+
 msgctxt "common"
 msgid "An error occurred while saving the ingredient."
 msgstr "Beim speichern der Zutat ist ein Fehler aufgetreten."
@@ -17,6 +57,10 @@ msgstr "Beim speichern der Zutat ist ein Fehler aufgetreten."
 msgctxt "common"
 msgid "An error occurred while saving the recipe."
 msgstr "Beim speichern des Rezepts ist ein Fehler aufgetreten."
+
+msgctxt "common"
+msgid "An unexpected error occurred. Please try again later."
+msgstr "Beim speichern ist ein unerwarteter Fehler aufgetreten. Bitte versuche es später erneut."
 
 msgctxt "common"
 msgid "Are you sure you want to delete this item?"
@@ -33,6 +77,22 @@ msgstr "Abbrechen"
 msgctxt "common"
 msgid "Carbohydrate"
 msgstr "Kohlenhydrate"
+
+msgctxt "common"
+msgid "Carbohydrates:"
+msgstr "Kohlenhydrate:"
+
+msgctxt "common"
+msgid "Categories"
+msgstr "Kategorien"
+
+msgctxt "common"
+msgid "Category"
+msgstr "Kategorie"
+
+msgctxt "common"
+msgid "Create Category"
+msgstr "Kategorie erstellen"
 
 msgctxt "common"
 msgid "Create Ingredient"
@@ -63,12 +123,36 @@ msgid "Fat"
 msgstr "Fett"
 
 msgctxt "common"
+msgid "Fat:"
+msgstr "Fett:"
+
+msgctxt "common"
+msgid "Fix sorting in overview tables"
+msgstr "Fehler bei der Sortierung in den Übersichtstabellen beheben"
+
+msgctxt "common"
+msgid "Fix the bug in ‘categories’ that causes all categories from all users to be displayed."
+msgstr "Fehler in den Kategorien behoben, der dazu führt, dass alle Kategorien aller Benutzer angezeigt werden."
+
+msgctxt "common"
+msgid "Have fun and good luck with the app!"
+msgstr "Viel Spaß und viel Erfolg mit der App!"
+
+msgctxt "common"
+msgid "Hey,"
+msgstr "Hallo,"
+
+msgctxt "common"
 msgid "ID"
 msgstr "ID"
 
 msgctxt "common"
 msgid "If you forgot your password you can "
 msgstr "Hast du dein Passwort vergessen? Setze es "
+
+msgctxt "common"
+msgid "If you have any questions or something doesn’t work as expected, just drop me an email at <strong>{email}</strong>. I’ll be happy to help!"
+msgstr "Wenn du Fragen hast oder etwas nicht wie erwartet funktioniert, schreibe mir einfach eine E-Mail an <strong>{email}</strong>. Ich helfe dir gerne!"
 
 msgctxt "common"
 msgid "Ingredient ID"
@@ -91,12 +175,20 @@ msgid "Need new verification email?"
 msgstr "Bestätigungsmail erneut senden?"
 
 msgctxt "common"
+msgid "No categories saved yet"
+msgstr "Noch keine Kategorien gespeichert"
+
+msgctxt "common"
 msgid "Note"
 msgstr "Bemerkung"
 
 msgctxt "common"
 msgid "Password"
 msgstr "Passwort"
+
+msgctxt "common"
+msgid "Please choose"
+msgstr "Bitte wählen"
 
 msgctxt "common"
 msgid "Please choose your new password:"
@@ -125,6 +217,10 @@ msgstr "Bitte logge dich ein, oder registriere dich, um BaitCalc nutzen zu könn
 msgctxt "common"
 msgid "Protein"
 msgstr "Protein"
+
+msgctxt "common"
+msgid "Protein:"
+msgstr "Protein:"
 
 msgctxt "common"
 msgid "Quantity"
@@ -179,12 +275,28 @@ msgid "Signup"
 msgstr "Registrieren"
 
 msgctxt "common"
+msgid "Thank you for registration. Please check your inbox for verification email."
+msgstr "Danke für deine Registrierung. Bitte überprüfe dein Postfach für die Bestätigungsmail."
+
+msgctxt "common"
+msgid "The category has been deleted."
+msgstr "Die Kategorie wurde gelöscht."
+
+msgctxt "common"
+msgid "The category has been saved."
+msgstr "Die Kategorie wurde gespeichert."
+
+msgctxt "common"
 msgid "The ingredient has been deleted."
 msgstr "Die Zutat wurde gelöscht."
 
 msgctxt "common"
 msgid "The ingredient has been saved."
 msgstr "Die Zutat wurde gespeichert."
+
+msgctxt "common"
+msgid "The ingredients have been saved."
+msgstr "Die Zutaten wurden gespeichert."
 
 msgctxt "common"
 msgid "The recipe has been saved."
@@ -195,8 +307,20 @@ msgid "The requested page does not exist."
 msgstr "Die gewünschte Seite existiert nicht."
 
 msgctxt "common"
+msgid "Totals"
+msgstr "Summe"
+
+msgctxt "common"
+msgid "Unable to verify your account with the provided token."
+msgstr "Dein Account konnte nicht mit dem bereitgestellten Token verifiziert werden."
+
+msgctxt "common"
 msgid "Update"
 msgstr "Bearbeiten"
+
+msgctxt "common"
+msgid "Update Category: {name}"
+msgstr "Kategorie bearbeiten: {name}"
 
 msgctxt "common"
 msgid "Update Ingredient: \"{name}\""
@@ -205,6 +329,10 @@ msgstr "Zutat bearbeiten: \"{name}\""
 msgctxt "common"
 msgid "Update Recipe: \"{name}\""
 msgstr "Rezept bearbeiten: \"{name}\""
+
+msgctxt "common"
+msgid "Update translations"
+msgstr "Übersetzungen aktualisieren"
 
 msgctxt "common"
 msgid "Updated At"
@@ -233,6 +361,14 @@ msgstr "Willkommen auf BaitCalc"
 msgctxt "common"
 msgid "You are now logged in."
 msgstr "Du bist eingeloggt"
+
+msgctxt "common"
+msgid "Your email has been confirmed!"
+msgstr "Deine E-Mail wurde bestätigt!"
+
+msgctxt "common"
+msgid "great to have you here! BaitCalc is here to help you manage your bait recipes quickly and easily."
+msgstr "schön, dass du hier bist! BaitCalc hilft dir dabei, deine Köderrezepte schnell und einfach zu verwalten."
 
 msgctxt "common"
 msgid "reset it"

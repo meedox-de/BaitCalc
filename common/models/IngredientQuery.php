@@ -9,16 +9,11 @@ namespace common\models;
  */
 class IngredientQuery extends \yii\db\ActiveQuery
 {
-    /*public function active()
-    {
-        return $this->andWhere('[[status]]=1');
-    }*/
-
     /**
      * {@inheritdoc}
      * @return Ingredient[]|array
      */
-    public function all($db = null)
+    public function all($db = null) :array
     {
         return parent::all($db);
     }
@@ -27,8 +22,20 @@ class IngredientQuery extends \yii\db\ActiveQuery
      * {@inheritdoc}
      * @return Ingredient|array|null
      */
-    public function one($db = null)
+    public function one($db = null) :array|Ingredient|null
     {
         return parent::one($db);
+    }
+
+    /**
+     * Filter by user_id
+     *
+     * @param int $userId
+     *
+     * @return IngredientQuery
+     */
+    public function userId(int $userId) :IngredientQuery
+    {
+        return $this->andWhere(['user_id' => $userId]);
     }
 }

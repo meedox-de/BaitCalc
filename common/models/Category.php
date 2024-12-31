@@ -20,7 +20,7 @@ class Category extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public static function tableName()
+    public static function tableName() :string
     {
         return '{{%category}}';
     }
@@ -28,8 +28,9 @@ class Category extends \yii\db\ActiveRecord
     /**
      * {@inheritdoc}
      */
-    public function rules()
+    public function rules() :array
     {
+        // @formatter:off
         return [
             [['user_id', 'name'], 'required'],
             [['user_id'], 'integer'],
@@ -37,12 +38,13 @@ class Category extends \yii\db\ActiveRecord
             [['name'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
+        // @formatter:on
     }
 
     /**
      * {@inheritdoc}
      */
-    public function attributeLabels()
+    public function attributeLabels() :array
     {
         return [
             'id' => Yii::t('app', 'ID'),
@@ -58,7 +60,7 @@ class Category extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery|yii\db\ActiveQuery
      */
-    public function getUser()
+    public function getUser() :\yii\db\ActiveQuery
     {
         return $this->hasOne(User::class, ['id' => 'user_id']);
     }
@@ -67,7 +69,7 @@ class Category extends \yii\db\ActiveRecord
      * {@inheritdoc}
      * @return CategoryQuery the active query used by this AR class.
      */
-    public static function find()
+    public static function find() :CategoryQuery
     {
         return new CategoryQuery(get_called_class());
     }

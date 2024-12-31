@@ -4,7 +4,8 @@ $versionInfo = [
     '0.1.2' => [
         'date'    => '2024-12-31',
         'changes' => [
-            Yii::t( 'common', 'Add support for PHP 8.1' ),
+            Yii::t( 'common', 'Fix the bug in ‘categories’ that causes all categories from all users to be displayed.' ),
+            Yii::t( 'common', 'Add calculating of fat, protein and carbohydrate in recipe view.' ),
             Yii::t( 'common', 'Update translations' ),
         ],
     ],

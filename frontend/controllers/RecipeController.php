@@ -2,12 +2,13 @@
 
 namespace frontend\controllers;
 
+use common\models\Ingredient;
 use common\models\Recipe;
+use common\models\RecipeIngredient;
 use common\models\RecipeSearch;
 use Throwable;
 use Yii;
 use yii\db\Exception;
-use yii\db\StaleObjectException;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -56,11 +57,48 @@ class RecipeController extends Controller
      *
      * @return string
      * @throws NotFoundHttpException if the model cannot be found
+     * @throws Exception
      */
     public function actionView(int $id) :string
     {
+        $model = $this->findModel( $id );
+
+        // get ingredients as array
+        $query = Ingredient::find();
+        $query->userId( Yii::$app->user->id );
+        $ingredients = $query->all();
+
+        // save quantity of ingredients
+        if( $this->request->isPost )
+        {
+            $ingredientInputs = Yii::$app->request->post( 'ingredients', [] );
+
+            RecipeIngredient::deleteAll( ['recipe_id' => $model->id] );
+
+            // save all ingredients with values over 0
+            foreach( $ingredientInputs as $ingredientId => $value )
+            {
+                if( (float) $value > 0 )
+                {
+                    $recipeIngredient                = new RecipeIngredient();
+                    $recipeIngredient->user_id       = Yii::$app->user->id;
+                    $recipeIngredient->recipe_id     = $model->id;
+                    $recipeIngredient->ingredient_id = $ingredientId;
+                    $recipeIngredient->quantity      = (float) $value;
+                    $recipeIngredient->save();
+                }
+            }
+
+            Yii::$app->session->setFlash( 'success', Yii::t( 'common', 'The ingredients have been saved.' ) );
+        }
+
+        // load saved ingredients
+        $recipeIngredients = RecipeIngredient::findAll( ['recipe_id' => $model->id] );
+
         return $this->render( 'view', [
-            'model' => $this->findModel( $id ),
+            'model'             => $model,
+            'ingredients'       => $ingredients,
+            'recipeIngredients' => $recipeIngredients,
         ] );
     }
 

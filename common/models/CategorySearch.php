@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 
@@ -64,7 +65,7 @@ class CategorySearch extends Category
 
         // grid filtering conditions
         $query->andFilterWhere( [
-                                    'user_id' => $this->user_id,
+                                    'user_id' => Yii::$app->user->id,
                                 ] );
 
         $query->andFilterWhere( [

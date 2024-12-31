@@ -9,26 +9,33 @@ namespace common\models;
  */
 class CategoryQuery extends \yii\db\ActiveQuery
 {
-    /*public function active()
-    {
-        return $this->andWhere('[[status]]=1');
-    }*/
-
     /**
      * {@inheritdoc}
      * @return Category[]|array
      */
-    public function all($db = null)
+    public function all($db = null) :array
     {
-        return parent::all($db);
+        return parent::all( $db );
     }
 
     /**
      * {@inheritdoc}
      * @return Category|array|null
      */
-    public function one($db = null)
+    public function one($db = null) :array|Category|null
     {
-        return parent::one($db);
+        return parent::one( $db );
+    }
+
+    /**
+     * Filter by user ID
+     *
+     * @param int $userId
+     *
+     * @return CategoryQuery
+     */
+    public function userId(int $userId) :CategoryQuery
+    {
+        return $this->andWhere( ['user_id' => $userId] );
     }
 }

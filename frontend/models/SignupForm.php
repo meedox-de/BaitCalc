@@ -20,7 +20,7 @@ class SignupForm extends Model
     /**
      * {@inheritdoc}
      */
-    public function rules()
+    public function rules() :array
     {
         return [
             [
@@ -95,7 +95,7 @@ class SignupForm extends Model
      * @return bool whether the creating new account was successful and email was sent
      * @throws Exception
      */
-    public function signup()
+    public function signup() :?bool
     {
         if( !$this->validate() )
         {
@@ -119,7 +119,7 @@ class SignupForm extends Model
      *
      * @return bool whether the email was sent
      */
-    protected function sendEmail($user)
+    protected function sendEmail(User $user) :bool
     {
         return Yii::$app->mailer->compose( [
                                                'html' => 'emailVerify-html',

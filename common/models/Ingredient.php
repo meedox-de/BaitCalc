@@ -126,8 +126,15 @@ class Ingredient extends \yii\db\ActiveRecord
                             'name',
                             'id',
                         ] );
+        $query->userId( Yii::$app->user->id );
         $query->indexBy( 'id' );
+        $query->orderBy( ['name' => SORT_ASC] );
+        $categories = $query->column();
+        if( empty( $categories ) )
+        {
+            return [null => Yii::t( 'common', 'No categories saved yet' )];
+        }
 
-        return [null => ''] + $query->column();
+        return [null => Yii::t( 'common', 'Please choose' )] + $query->column();
     }
 }

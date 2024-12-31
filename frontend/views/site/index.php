@@ -30,14 +30,14 @@ require_once(Yii::getAlias( '@frontend/config/version_info.php' ));
             <div class="row">
 
                 <div class="col-12 col-md-6">
-                    <h5><?= Yii::t('common', 'Hey,'); ?></h5>
+                    <h5><?= Yii::t( 'common', 'Hey,' ); ?></h5>
 
-                    <p><?= Yii::t('common', 'great to have you here! BaitCalc is here to help you manage your bait recipes quickly and easily.'); ?></p>
-                    <p><?= Yii::t('common', 'If you have any questions or something doesn’t work as expected, just drop me an email at <strong>{email}</strong>. I’ll be happy to help!', ['email' => Yii::$app->params['adminEmail']]); ?></p>
-                    <p><?= Yii::t('common', 'Have fun and good luck with the app!'); ?></p>
+                    <p><?= Yii::t( 'common', 'great to have you here! BaitCalc is here to help you manage your bait recipes quickly and easily.' ); ?></p>
+                    <p><?= Yii::t( 'common', 'If you have any questions or something doesn’t work as expected, just drop me an email at <strong>{email}</strong>. I’ll be happy to help!', ['email' => Yii::$app->params['adminEmail']] ); ?></p>
+                    <p><?= Yii::t( 'common', 'Have fun and good luck with the app!' ); ?></p>
 
                     <?php if( Yii::$app->user->isGuest ): ?>
-                        <p><a class="btn btn-outline-secondary" href="/site/signup"><?= Yii::t('common', 'Signup'); ?></a></p>
+                        <p><a class="btn btn-outline-secondary" href="/site/signup"><?= Yii::t( 'common', 'Signup' ); ?></a></p>
                     <?php endif; ?>
                 </div>
 
