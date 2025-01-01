@@ -128,7 +128,7 @@ msgstr "Fett:"
 
 msgctxt "common"
 msgid "Fix sorting in overview tables"
-msgstr "Fehler bei der Sortierung in den Übersichtstabellen beheben"
+msgstr "Fehler bei der Sortierung in den Übersichtstabellen behoben"
 
 msgctxt "common"
 msgid "Fix the bug in ‘categories’ that causes all categories from all users to be displayed."
