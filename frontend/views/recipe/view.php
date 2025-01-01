@@ -89,7 +89,7 @@ foreach( $recipeIngredients as $recipeIngredient )
         <li><?= Yii::t( 'common', 'Carbohydrates:' ) ?> <span id="total-carbohydrates">0</span> %</li>
     </ul>
 
-    <h3>Zutaten</h3>
+    <h4>Zutaten</h4>
     <div id="ingredient-list" class="row">
         <?php
         $groupedIngredients = [];
@@ -98,32 +98,49 @@ foreach( $recipeIngredients as $recipeIngredient )
             $groupedIngredients[$ingredient['category_id']][] = $ingredient;
         }
 
-        foreach( $groupedIngredients as $categoryId => $categoryIngredients ): ?>
+        $accordionId = 0; // Unique ID for each collapsible section
+        foreach( $groupedIngredients as $categoryId => $categoryIngredients ):
+            $accordionId++;
+            ?>
             <div class="col-md-6">
                 <div class="card mb-3">
-                    <div class="card-header">
-                        <h5 class="mb-0"><?= Html::encode($categories[$categoryId] ?? Yii::t('common', 'Uncategorized')) ?></h5>
+                    <div class="card-header d-flex align-items-center justify-content-between">
+                        <h5 class="mb-0 w-100">
+                            <button class="btn btn-link text-decoration-none w-100 text-start d-flex align-items-center justify-content-between text-dark"
+                                    type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#collapse-<?= $accordionId ?>"
+                                    aria-expanded="false"
+                                    aria-controls="collapse-<?= $accordionId ?>">
+                                <?= Html::encode( $categories[$categoryId] ?? Yii::t( 'common', 'Uncategorized' ) ) ?>
+                                <span class="collapse-icon">
+                                <i class="bi bi-chevron-down"></i>
+                            </span>
+                            </button>
+                        </h5>
                     </div>
-                    <div class="card-body">
-                        <?php foreach( $categoryIngredients as $ingredient ): ?>
-                            <div class="ingredient-item mb-2">
-                                <div class="d-flex align-items-center">
-                                    <input type="number"
-                                           class="form-control ingredient-input me-2"
-                                           id="ingredient-<?= $ingredient['id'] ?>"
-                                           name="ingredients[<?= $ingredient['id'] ?>]"
-                                           value="<?= number_format( $savedIngredients[$ingredient['id']] ?? 0, 2, '.', '' ) ?>"
-                                           min="0"
-                                           step="1.0"
-                                           max="100"
-                                           data-fat="<?= $ingredient['fat'] ?>"
-                                           data-protein="<?= $ingredient['protein'] ?>"
-                                           data-carbohydrates="<?= $ingredient['carbohydrate'] ?>"
-                                           style="width: 90px;">
-                                    <span class="flex-grow-1"><?= Html::encode( $ingredient['name'] ) ?></span>
+                    <div id="collapse-<?= $accordionId ?>" class="collapse" aria-labelledby="heading-<?= $accordionId ?>">
+                        <div class="card-body">
+                            <?php foreach( $categoryIngredients as $ingredient ): ?>
+                                <div class="ingredient-item mb-2">
+                                    <div class="d-flex align-items-center">
+                                        <input type="number"
+                                               class="form-control ingredient-input me-2"
+                                               id="ingredient-<?= $ingredient['id'] ?>"
+                                               name="ingredients[<?= $ingredient['id'] ?>]"
+                                               value="<?= number_format( $savedIngredients[$ingredient['id']] ?? 0, 2, '.', '' ) ?>"
+                                               min="0"
+                                               step="1.0"
+                                               max="100"
+                                               data-fat="<?= $ingredient['fat'] ?>"
+                                               data-protein="<?= $ingredient['protein'] ?>"
+                                               data-carbohydrates="<?= $ingredient['carbohydrate'] ?>"
+                                               style="width: 90px;">
+                                        <span class="flex-grow-1"><?= Html::encode( $ingredient['name'] ) ?></span>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
             </div>
