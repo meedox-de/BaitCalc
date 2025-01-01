@@ -18,6 +18,10 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode( $this->title ) ?></h1>
 
+    <div class="alert alert-warning" role="alert">
+        <?= Yii::t( 'common', 'Attention! Changing the values of the ingredient will affect all recipes that contain this ingredient.' ) ?>
+    </div>
+
     <?= $this->render( '_form', [
         'model' => $model,
     ] ) ?>

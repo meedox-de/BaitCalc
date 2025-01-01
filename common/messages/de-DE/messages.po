@@ -67,6 +67,18 @@ msgid "Are you sure you want to delete this item?"
 msgstr "Möchtest du dieses Element wirklich löschen?"
 
 msgctxt "common"
+msgid "Attention! Changing the values of the ingredient will affect all recipes that contain this ingredient."
+msgstr "Achtung! Das Ändern der Werte der Zutat wirkt sich auf alle Rezepte aus, die diese Zutat enthalten."
+
+msgctxt "common"
+msgid "Attention! Do you really want to delete the category? All ingredients that belonged to this category will then be uncategorized."
+msgstr "Warnung! Möchtest du diese Kategorie wirklich löschen? Alle Zutaten, die zu dieser Kategorie gehörten, werden dann nicht kategorisiert."
+
+msgctxt "common"
+msgid "Attention! Do you really want to delete the ingredient? This ingredient will then be removed from all recipes and the recipes will be changed!"
+msgstr "Warnung! Möchtest du diese Zutat wirklich löschen? Diese Zutat wird dann aus allen Rezepten entfernt und die Rezepte werden geändert!"
+
+msgctxt "common"
 msgid "Back to Recipes"
 msgstr "Zurück zu den Rezepten"
 
@@ -89,6 +101,10 @@ msgstr "Kategorien"
 msgctxt "common"
 msgid "Category"
 msgstr "Kategorie"
+
+msgctxt "common"
+msgid "Change some view details in recipe view."
+msgstr "Einige Ansichtsdetails im Rezept ändern."
 
 msgctxt "common"
 msgid "Create Category"
@@ -133,6 +149,10 @@ msgstr "Fehler bei der Sortierung in den Übersichtstabellen behoben"
 msgctxt "common"
 msgid "Fix the bug in ‘categories’ that causes all categories from all users to be displayed."
 msgstr "Fehler in den Kategorien behoben, der dazu führt, dass alle Kategorien aller Benutzer angezeigt werden."
+
+msgctxt "common"
+msgid "Fix the bug that caused ingredients not to be saved in the recipe."
+msgstr "Fehler behoben, der dazu führte, dass Zutaten im Rezept nicht gespeichert wurden."
 
 msgctxt "common"
 msgid "Have fun and good luck with the app!"
@@ -263,6 +283,10 @@ msgid "Save"
 msgstr "Speichern"
 
 msgctxt "common"
+msgid "Save recipe"
+msgstr "Rezept speichern"
+
+msgctxt "common"
 msgid "Search"
 msgstr "Suchen"
 
@@ -313,6 +337,10 @@ msgstr "Summe"
 msgctxt "common"
 msgid "Unable to verify your account with the provided token."
 msgstr "Dein Account konnte nicht mit dem bereitgestellten Token verifiziert werden."
+
+msgctxt "common"
+msgid "Uncategorized"
+msgstr "Nicht kategorisiert"
 
 msgctxt "common"
 msgid "Update"

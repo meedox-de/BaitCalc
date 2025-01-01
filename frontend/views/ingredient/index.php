@@ -66,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                           'delete' => function($url, $model, $key) {
                                               return Html::a( '<span class="badge bg-danger"><i class="bi bi-trash"></i> ' . Yii::t( 'common', 'Delete' ) . '</span>', $url, [
                                                   'title'        => 'Delete',
-                                                  'data-confirm' => Yii::t( 'common', 'Are you sure you want to delete this item?' ),
+                                                  'data-confirm' => Yii::t( 'common', 'Attention! Do you really want to delete the ingredient? This ingredient will then be removed from all recipes and the recipes will be changed!' ),
                                                   'data-method'  => 'post',
                                               ] );
                                           },
