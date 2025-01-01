@@ -8,6 +8,7 @@ use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
 /** @var common\models\Recipe $model */
+/** @var array $categories */
 /** @var Ingredient $ingredients */
 /** @var RecipeIngredient[] $recipeIngredients */
 
@@ -78,31 +79,53 @@ foreach( $recipeIngredients as $recipeIngredient )
                              'id' => $model->id,
                          ], 'post', ['id' => 'save-ingredients-form'] ) ?>
     <div>
-        <?= Html::submitButton( Yii::t( 'common', 'Save' ), ['class' => 'btn btn-success'] ) ?>
+        <?= Html::submitButton( Yii::t( 'common', 'Save recipe' ), ['class' => 'btn btn-success mt-5 mb-3'] ) ?>
     </div>
 
     <h4><?= Yii::t( 'common', 'Totals' ) ?></h4>
     <ul>
-        <li><?= Yii::t( 'common', 'Fat:' ) ?> <span id="total-fat">0</span> %</li>
         <li><?= Yii::t( 'common', 'Protein:' ) ?> <span id="total-protein">0</span> %</li>
+        <li><?= Yii::t( 'common', 'Fat:' ) ?> <span id="total-fat">0</span> %</li>
         <li><?= Yii::t( 'common', 'Carbohydrates:' ) ?> <span id="total-carbohydrates">0</span> %</li>
     </ul>
 
     <h3>Zutaten</h3>
-    <div id="ingredient-list">
-        <?php foreach( $ingredients as $ingredient ): ?>
-            <div class="ingredient-item">
-                <input type="number"
-                       class="ingredient-input"
-                       id="ingredient-<?= $ingredient['id'] ?>"
-                       value="<?= number_format($savedIngredients[$ingredient['id']] ?? 0, 2, '.', '') ?>"
-                       min="0"
-                       max="100"
-                       step="1.00"
-                       data-fat="<?= $ingredient['fat'] ?>"
-                       data-protein="<?= $ingredient['protein'] ?>"
-                       data-carbohydrates="<?= $ingredient['carbohydrate'] ?>">
-                <span><?= Html::encode( $ingredient['name'] ) ?></span>
+    <div id="ingredient-list" class="row">
+        <?php
+        $groupedIngredients = [];
+        foreach( $ingredients as $ingredient )
+        {
+            $groupedIngredients[$ingredient['category_id']][] = $ingredient;
+        }
+
+        foreach( $groupedIngredients as $categoryId => $categoryIngredients ): ?>
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5 class="mb-0"><?= Html::encode($categories[$categoryId] ?? Yii::t('common', 'Uncategorized')) ?></h5>
+                    </div>
+                    <div class="card-body">
+                        <?php foreach( $categoryIngredients as $ingredient ): ?>
+                            <div class="ingredient-item mb-2">
+                                <div class="d-flex align-items-center">
+                                    <input type="number"
+                                           class="form-control ingredient-input me-2"
+                                           id="ingredient-<?= $ingredient['id'] ?>"
+                                           name="ingredients[<?= $ingredient['id'] ?>]"
+                                           value="<?= number_format( $savedIngredients[$ingredient['id']] ?? 0, 2, '.', '' ) ?>"
+                                           min="0"
+                                           step="1.0"
+                                           max="100"
+                                           data-fat="<?= $ingredient['fat'] ?>"
+                                           data-protein="<?= $ingredient['protein'] ?>"
+                                           data-carbohydrates="<?= $ingredient['carbohydrate'] ?>"
+                                           style="width: 90px;">
+                                    <span class="flex-grow-1"><?= Html::encode( $ingredient['name'] ) ?></span>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
             </div>
         <?php endforeach; ?>
     </div>

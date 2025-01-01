@@ -63,7 +63,7 @@ require_once(Yii::getAlias( '@frontend/config/version_info.php' ));
                                 <p>- <?= $change; ?></p>
                             <?php endforeach; ?>
 
-                            <p class="text-muted"><?= $values['date']; ?></p>
+                            <p class="text-muted"><?= Yii::$app->formatter->asDatetime( $values['date'], 'php:d.m.Y' ) ?? ''; ?></p>
                         </div>
                     <?php endforeach; ?>
 

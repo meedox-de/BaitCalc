@@ -1,8 +1,15 @@
 <?php
 
 $versionInfo = [
+    '0.1.3' => [
+        'date'    => '2025-01-01',
+        'changes' => [
+            Yii::t( 'common', 'Fix the bug that caused ingredients not to be saved in the recipe.' ),
+            Yii::t( 'common', 'Change some view details in recipe view.' ),
+        ],
+    ],
     '0.1.2' => [
-        'date'    => '2024-12-31',
+        'date'    => '2024-12-30',
         'changes' => [
             Yii::t( 'common', 'Fix the bug in ‘categories’ that causes all categories from all users to be displayed.' ),
             Yii::t( 'common', 'Add calculating of fat, protein and carbohydrate in recipe view.' ),

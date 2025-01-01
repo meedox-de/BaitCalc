@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use common\models\Category;
 use common\models\Ingredient;
 use common\models\Recipe;
 use common\models\RecipeIngredient;
@@ -95,8 +96,19 @@ class RecipeController extends Controller
         // load saved ingredients
         $recipeIngredients = RecipeIngredient::findAll( ['recipe_id' => $model->id] );
 
+        // load all categories as array
+        $query = Category::find();
+        $query->select( [
+                            'name',
+                            'id',
+                        ] );
+        $query->userId( Yii::$app->user->id );
+        $query->orderBy( ['name' => SORT_ASC] );
+        $categories = $query->column();
+
         return $this->render( 'view', [
             'model'             => $model,
+            'categories'        => $categories,
             'ingredients'       => $ingredients,
             'recipeIngredients' => $recipeIngredients,
         ] );
