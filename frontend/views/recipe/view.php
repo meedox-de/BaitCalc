@@ -28,6 +28,16 @@ foreach( $recipeIngredients as $recipeIngredient )
 {
     $savedIngredients[$recipeIngredient->ingredient_id] = $recipeIngredient->quantity;
 }
+
+// Group ingredients by category
+$groupedIngredients = [];
+foreach( $ingredients as $ingredient )
+{
+    $categoryId = $ingredient['category_id'] ?? 0;
+    $groupedIngredients[$categoryId][] = $ingredient;
+}
+
+$accordionId = 0; // Unique ID for each collapsible section
 ?>
 <div class="recipe-view">
 
@@ -91,15 +101,7 @@ foreach( $recipeIngredients as $recipeIngredient )
 
     <h4>Zutaten</h4>
     <div id="ingredient-list" class="row">
-        <?php
-        $groupedIngredients = [];
-        foreach( $ingredients as $ingredient )
-        {
-            $groupedIngredients[$ingredient['category_id']][] = $ingredient;
-        }
-
-        $accordionId = 0; // Unique ID for each collapsible section
-        foreach( $groupedIngredients as $categoryId => $categoryIngredients ):
+        <?php foreach( $groupedIngredients as $categoryId => $categoryIngredients ):
             $accordionId++;
             ?>
             <div class="col-md-6">
