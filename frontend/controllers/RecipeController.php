@@ -99,12 +99,14 @@ class RecipeController extends Controller
         // load all categories as array
         $query = Category::find();
         $query->select( [
-                            'name',
                             'id',
+                            'name',
                         ] );
         $query->userId( Yii::$app->user->id );
-        $query->orderBy( ['name' => SORT_ASC] );
-        $categories = $query->column();
+        //$query->orderBy( ['name' => SORT_ASC] );
+        $query->indexBy( 'id' );
+        $query->asArray();
+        $categories = array_column( $query->all(), 'name', 'id' );
 
         return $this->render( 'view', [
             'model'             => $model,

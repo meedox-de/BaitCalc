@@ -101,7 +101,7 @@ $accordionId = 0; // Unique ID for each collapsible section
 
     <h4>Zutaten</h4>
     <div id="ingredient-list" class="row">
-        <?php foreach( $groupedIngredients as $categoryId => $categoryIngredients ):
+        <?php foreach( $groupedIngredients as $categoryId => $categoryIngredientsArray ):
             $accordionId++;
             ?>
             <div class="col-md-6">
@@ -123,7 +123,7 @@ $accordionId = 0; // Unique ID for each collapsible section
                     </div>
                     <div id="collapse-<?= $accordionId ?>" class="collapse" aria-labelledby="heading-<?= $accordionId ?>">
                         <div class="card-body">
-                            <?php foreach( $categoryIngredients as $ingredient ): ?>
+                            <?php foreach( $categoryIngredientsArray as $ingredient ): ?>
                                 <div class="ingredient-item mb-2">
                                     <div class="d-flex align-items-center">
                                         <input type="number"
