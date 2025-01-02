@@ -67,6 +67,10 @@ class RecipeController extends Controller
         // get ingredients as array
         $query = Ingredient::find();
         $query->userId( Yii::$app->user->id );
+        $query->leftJoin( Category::tableName(), 'category.id = ingredient.category_id' );
+        $query->orderBy( [
+                             'category.name' => SORT_ASC,
+                         ] );
         $ingredients = $query->all();
 
         // save quantity of ingredients
@@ -103,7 +107,6 @@ class RecipeController extends Controller
                             'name',
                         ] );
         $query->userId( Yii::$app->user->id );
-        //$query->orderBy( ['name' => SORT_ASC] );
         $query->indexBy( 'id' );
         $query->asArray();
         $categories = array_column( $query->all(), 'name', 'id' );

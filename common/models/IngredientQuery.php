@@ -36,6 +36,6 @@ class IngredientQuery extends \yii\db\ActiveQuery
      */
     public function userId(int $userId) :IngredientQuery
     {
-        return $this->andWhere(['user_id' => $userId]);
+        return $this->andWhere([Ingredient::tableName() . '.user_id' => $userId]);
     }
 }
