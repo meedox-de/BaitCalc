@@ -1,8 +1,8 @@
 <?php
 
 use common\models\Category;
+use frontend\assets\AppAsset;
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
@@ -13,7 +13,18 @@ use yii\widgets\Pjax;
 
 $this->title                   = Yii::t( 'common', 'Categories' );
 $this->params['breadcrumbs'][] = $this->title;
+
+AppAsset::register( $this );
+
+$filterHtml = '<label class="mobile-label" for="filter-name">' . Category::instance()->getAttributeLabel( 'name' ) . '</label>' . '<div class="input-group">' . '<button class="btn btn-outline-secondary search-input" type="button" id="search-name">' . '<i class="bi bi-search"></i>' . '</button>' .
+              Html::textInput( 'CategorySearch[name]', $searchModel->name, [
+                  'class'       => 'form-control',
+                  'id'          => 'filter-name',
+                  'placeholder' => Yii::t( 'common', 'Search name...' ),
+              ] ) . '<button class="btn btn-outline-secondary clear-input" type="button" id="clear-name" style="display:none;">' . // X-Symbol standardmäßig ausblenden
+              '<i class="bi bi-x"></i>' . '</button>' . '</div>';
 ?>
+
 <div class="category-index">
 
     <h1><?= Html::encode( $this->title ) ?></h1>
@@ -22,20 +33,26 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a( Yii::t( 'common', 'Create Category' ), ['create'], ['class' => 'btn btn-success'] ) ?>
     </p>
 
-    <?php Pjax::begin(); ?>
+    <?php Pjax::begin( ['id' => 'category-pjax-container'] ); ?>
 
     <?= GridView::widget( [
                               'dataProvider' => $dataProvider,
                               'filterModel'  => $searchModel,
+                              'tableOptions' => ['class' => 'table table-striped table-bordered responsive-table'],
                               'columns'      => [
                                   ['class' => 'yii\grid\SerialColumn'],
-                                  'name',
                                   [
-                                      'attribute' => 'created_at',
-                                      'format'    => [
+                                      'attribute'      => 'name',
+                                      'filter'         => $filterHtml,
+                                      'contentOptions' => ['data-label' => Category::instance()->getAttributeLabel( 'name' )],
+                                  ],
+                                  [
+                                      'attribute'      => 'created_at',
+                                      'format'         => [
                                           'date',
                                           'php:d.m.Y H:i',
                                       ],
+                                      'contentOptions' => ['data-label' => Yii::t( 'common', 'Created At' )],
                                   ],
                                   [
                                       'class'    => ActionColumn::class,

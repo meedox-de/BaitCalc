@@ -1,0 +1,29 @@
+.mobile-label {
+    display: none;
+}
+@media (max-width: 768px) {
+    .responsive-table td {
+        display: block;
+        text-align: right;
+        border: none;
+    }
+    .responsive-table td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+    .responsive-table tr {
+        margin-bottom: 1rem;
+        display: block;
+        border: 1px solid #ddd;
+    }
+    .responsive-table th {
+        display: none;
+    }
+    .mobile-label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+}
