@@ -33,7 +33,7 @@ foreach( $recipeIngredients as $recipeIngredient )
 $groupedIngredients = [];
 foreach( $ingredients as $ingredient )
 {
-    $categoryId = $ingredient['category_id'] ?? 0;
+    $categoryId                        = $ingredient['category_id'] ?? 0;
     $groupedIngredients[$categoryId][] = $ingredient;
 }
 
@@ -93,15 +93,36 @@ $accordionId = 0; // Unique ID for each collapsible section
     </div>
 
     <h4><?= Yii::t( 'common', 'Totals' ) ?></h4>
-    <ul>
-        <li><?= Yii::t( 'common', 'Protein:' ) ?> <span id="total-protein">0</span> %</li>
-        <li><?= Yii::t( 'common', 'Fat:' ) ?> <span id="total-fat">0</span> %</li>
-        <li><?= Yii::t( 'common', 'Carbohydrates:' ) ?> <span id="total-carbohydrates">0</span> %</li>
-    </ul>
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title"><?= Yii::t( 'common', 'Protein' ) ?></h5>
+                    <p class="card-text"><span id="total-protein">0</span> %</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title"><?= Yii::t( 'common', 'Fat' ) ?></h5>
+                    <p class="card-text"><span id="total-fat">0</span> %</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title"><?= Yii::t( 'common', 'Carbohydrates' ) ?></h5>
+                    <p class="card-text"><span id="total-carbohydrates">0</span> %</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <h4>Zutaten</h4>
+    <h4>Zutaten (<span id="total-percentage" class="fw-bold">0</span> %)</h4>
     <div id="ingredient-list" class="row">
-        <?php foreach( $groupedIngredients as $categoryId => $categoryIngredientsArray ):
+        <?php foreach ($groupedIngredients as $categoryId => $categoryIngredientsArray):
             $accordionId++;
             ?>
             <div class="col-md-6">
@@ -114,7 +135,7 @@ $accordionId = 0; // Unique ID for each collapsible section
                                     data-bs-target="#collapse-<?= $accordionId ?>"
                                     aria-expanded="false"
                                     aria-controls="collapse-<?= $accordionId ?>">
-                                <?= Html::encode( $categories[$categoryId] ?? Yii::t( 'common', 'Uncategorized' ) ) ?>
+                                <?= Html::encode($categories[$categoryId] ?? Yii::t('common', 'Uncategorized')) ?>
                                 <span class="collapse-icon">
                                 <i class="bi bi-chevron-down"></i>
                             </span>
@@ -123,14 +144,15 @@ $accordionId = 0; // Unique ID for each collapsible section
                     </div>
                     <div id="collapse-<?= $accordionId ?>" class="collapse" aria-labelledby="heading-<?= $accordionId ?>">
                         <div class="card-body">
-                            <?php foreach( $categoryIngredientsArray as $ingredient ): ?>
-                                <div class="ingredient-item mb-2">
-                                    <div class="d-flex align-items-center">
+                            <?php foreach ($categoryIngredientsArray as $ingredient): ?>
+                                <div class="ingredient-item mb-2 d-flex align-items-center">
+                                    <div class="input-group" style="flex: 1;">
+                                        <span class="input-group-text">%</span>
                                         <input type="number"
-                                               class="form-control ingredient-input me-2"
+                                               class="form-control ingredient-input"
                                                id="ingredient-<?= $ingredient['id'] ?>"
                                                name="ingredients[<?= $ingredient['id'] ?>]"
-                                               value="<?= number_format( $savedIngredients[$ingredient['id']] ?? 0, 2, '.', '' ) ?>"
+                                               value="<?= number_format($savedIngredients[$ingredient['id']] ?? 0, 2, '.', '') ?>"
                                                min="0"
                                                step="1.0"
                                                max="100"
@@ -138,9 +160,11 @@ $accordionId = 0; // Unique ID for each collapsible section
                                                data-fat="<?= $ingredient['fat'] ?>"
                                                data-protein="<?= $ingredient['protein'] ?>"
                                                data-carbohydrates="<?= $ingredient['carbohydrate'] ?>"
-                                               style="width: 90px;">
-                                        <span class="flex-grow-1"><?= Html::encode( $ingredient['name'] ) ?></span>
+                                               style="width: 40px;">
                                     </div>
+                                    <label for="ingredient-<?= $ingredient['id'] ?>" class="ms-2 flex-grow-1">
+                                        <?= Html::encode($ingredient['name']) ?>
+                                    </label>
                                 </div>
                             <?php endforeach; ?>
                         </div>
