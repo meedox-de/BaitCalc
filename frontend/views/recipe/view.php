@@ -134,6 +134,7 @@ $accordionId = 0; // Unique ID for each collapsible section
                                                min="0"
                                                step="1.0"
                                                max="100"
+                                               lang="de"
                                                data-fat="<?= $ingredient['fat'] ?>"
                                                data-protein="<?= $ingredient['protein'] ?>"
                                                data-carbohydrates="<?= $ingredient['carbohydrate'] ?>"
