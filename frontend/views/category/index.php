@@ -21,8 +21,7 @@ $filterHtml = '<label class="mobile-label" for="filter-name">' . Category::insta
                   'class'       => 'form-control',
                   'id'          => 'filter-name',
                   'placeholder' => Yii::t( 'common', 'Search name...' ),
-              ] ) . '<button class="btn btn-outline-secondary clear-input" type="button" id="clear-name" style="display:none;">' . // X-Symbol standardmäßig ausblenden
-              '<i class="bi bi-x"></i>' . '</button>' . '</div>';
+              ] ) . '<button class="btn btn-outline-secondary clear-input" type="button" id="clear-name" style="display:none;">' . '<i class="bi bi-x"></i>' . '</button>' . '</div>';
 ?>
 
 <div class="category-index">
@@ -30,10 +29,10 @@ $filterHtml = '<label class="mobile-label" for="filter-name">' . Category::insta
     <h1><?= Html::encode( $this->title ) ?></h1>
 
     <p>
-        <?= Html::a( Yii::t( 'common', 'Create Category' ), ['create'], ['class' => 'btn btn-success'] ) ?>
+        <?= Html::a( '<i class="bi bi-plus-square-dotted"></i> ' . Yii::t( 'common', 'Create Category' ), ['create'], ['class' => 'btn btn-success'] ) ?>
     </p>
 
-    <?php Pjax::begin( ['id' => 'category-pjax-container'] ); ?>
+    <?php Pjax::begin( ['id' => 'pjax-container'] ); ?>
 
     <?= GridView::widget( [
                               'dataProvider' => $dataProvider,

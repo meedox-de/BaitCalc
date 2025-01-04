@@ -1,6 +1,9 @@
 <?php
 
+use common\models\Category;
+use common\models\Ingredient;
 use common\models\IngredientSearch;
+use frontend\assets\AppAsset;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\helpers\Html;
@@ -14,6 +17,20 @@ use yii\widgets\Pjax;
 $this->title                   = Yii::t( 'common', 'Ingredients' );
 $this->params['breadcrumbs'][] = $this->title;
 
+AppAsset::register( $this );
+
+$filterHtmlName = '<label class="mobile-label" for="filter-name">' . Yii::t( 'common', 'Search for name' ) . '</label>' . '<div class="input-group">' . '<button class="btn btn-outline-secondary search-input" type="button" id="search-name">' . '<i class="bi bi-search"></i>' . '</button>' .
+                  Html::textInput( 'IngredientSearch[name]', $searchModel->name, [
+                      'class'       => 'form-control',
+                      'id'          => 'filter-name',
+                      'placeholder' => Yii::t( 'common', 'Search name...' ),
+                  ] ) . '<button class="btn btn-outline-secondary clear-input" type="button" id="clear-name" style="display:none;">' . '<i class="bi bi-x"></i>' . '</button>' . '</div>';
+
+$filterHtmlCategory = '<label class="mobile-label" for="filter-name">' . Yii::t( 'common', 'Search for category' ) . '</label>' . Html::activeDropDownList( $searchModel, 'category_id', Category::getCategoryListForDropdown(), [
+        'prompt' => Yii::t( 'common', 'All' ),
+        'class'  => 'form-control',
+    ] );
+
 ?>
 <div class="ingredient-index">
 
@@ -23,35 +40,66 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a( '<i class="bi bi-plus-square-dotted"></i> ' . Yii::t( 'common', 'Create Ingredient' ), ['create'], ['class' => 'btn btn-success'] ) ?>
     </p>
 
-    <?php Pjax::begin(); ?>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+    <?php Pjax::begin( ['id' => 'pjax-container'] ); ?>
 
     <?= GridView::widget( [
                               'dataProvider' => $dataProvider,
                               'filterModel'  => $searchModel,
+                              'tableOptions' => ['class' => 'table table-striped table-bordered responsive-table'],
                               'columns'      => [
                                   ['class' => 'yii\grid\SerialColumn'],
-                                  'name',
                                   [
-                                      'attribute' => 'category_id',
-                                      'value'     => 'category.name',
-                                      'label'     => Yii::t( 'common', 'Category' ),
+                                      'attribute'      => 'name',
+                                      'filter'         => $filterHtmlName,
+                                      'contentOptions' => ['data-label' => Ingredient::instance()->getAttributeLabel( 'name' )],
                                   ],
-                                  'protein',
-                                  'fat',
-                                  'carbohydrate',
                                   [
-                                      'attribute' => 'note',
-                                      'value'     => function($model) {
-                                          return StringHelper::truncate( $model->note, 20, '...' );
+                                      'attribute'      => 'category_id',
+                                      'value'          => 'category.name',
+                                      'label'          => Yii::t( 'common', 'Category' ),
+                                      'contentOptions' => ['data-label' => Yii::t( 'common', 'Category' )],
+                                      'filter'         => $filterHtmlCategory,
+                                  ],
+                                  [
+                                      'attribute'      => 'protein',
+                                      'contentOptions' => ['data-label' => Ingredient::instance()->getAttributeLabel( 'protein' )],
+                                      'value'          => function($model) {
+                                          return number_format( $model->protein, 2, ',', '.' ) . ' %';
                                       },
                                   ],
                                   [
-                                      'attribute' => 'created_at',
-                                      'format'    => [
+                                      'attribute'      => 'fat',
+                                      'contentOptions' => ['data-label' => Ingredient::instance()->getAttributeLabel( 'fat' )],
+                                      'value'          => function($model) {
+                                          return number_format( $model->fat, 2, ',', '.' ) . ' %';
+                                      },
+                                  ],
+                                  [
+                                      'attribute'      => 'carbohydrate',
+                                      'contentOptions' => ['data-label' => Ingredient::instance()->getAttributeLabel( 'carbohydrate' )],
+                                      'value'          => function($model) {
+                                          return number_format( $model->carbohydrate, 2, ',', '.' ) . ' %';
+                                      },
+                                  ],
+                                  [
+                                      'attribute'      => 'note',
+                                      'value'          => function($model) {
+                                          if( empty( $model->note ) )
+                                          {
+                                              return '<span style="color: #c55;"><i>(nicht gesetzt)</i></span>';
+                                          }
+                                          return StringHelper::truncate( $model->note, 20, '...' );
+                                      },
+                                      'format'         => 'raw',
+                                      'contentOptions' => ['data-label' => Ingredient::instance()->getAttributeLabel( 'note' )],
+                                  ],
+                                  [
+                                      'attribute'      => 'created_at',
+                                      'format'         => [
                                           'date',
                                           'php:d.m.Y H:i',
                                       ],
+                                      'contentOptions' => ['data-label' => Ingredient::instance()->getAttributeLabel( 'created_at' )],
                                   ],
                                   [
                                       'class'    => ActionColumn::class,

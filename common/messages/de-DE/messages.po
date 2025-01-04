@@ -14,29 +14,21 @@ msgctxt "app"
 msgid "Category ID"
 msgstr "Kategorie ID"
 
-msgctxt "app"
-msgid "Created At"
-msgstr "Erstellt am"
-
-msgctxt "app"
-msgid "ID"
-msgstr "ID"
-
-msgctxt "app"
-msgid "Name"
-msgstr "Name"
-
-msgctxt "app"
-msgid "Updated At"
-msgstr "Geändert am"
-
-msgctxt "app"
-msgid "User ID"
-msgstr "Benutzer ID"
-
 msgctxt "common"
 msgid "Add calculating of fat, protein and carbohydrate in recipe view."
 msgstr "Berechnung von Fett, Protein und Kohlenhydraten im Rezept anzeigen."
+
+msgctxt "common"
+msgid "Add fully responsive Data-Tables for smartphones."
+msgstr "Responsive-Tabellen für Smartphones hinzugefügt."
+
+msgctxt "common"
+msgid "Add search-option for ingredients with categories."
+msgstr "Suchfunktion für Zutaten mit Kategorien hinzugefügt."
+
+msgctxt "common"
+msgid "All"
+msgstr "Alle"
 
 msgctxt "common"
 msgid "An error occurred while deleting the category."
@@ -91,8 +83,8 @@ msgid "Carbohydrate"
 msgstr "Kohlenhydrate"
 
 msgctxt "common"
-msgid "Carbohydrates:"
-msgstr "Kohlenhydrate:"
+msgid "Carbohydrates"
+msgstr "Kohlenhydrate"
 
 msgctxt "common"
 msgid "Categories"
@@ -139,8 +131,8 @@ msgid "Fat"
 msgstr "Fett"
 
 msgctxt "common"
-msgid "Fat:"
-msgstr "Fett:"
+msgid "Fix some bugs"
+msgstr "Einige Fehler behoben"
 
 msgctxt "common"
 msgid "Fix sorting in overview tables"
@@ -155,8 +147,20 @@ msgid "Fix the bug that caused ingredients not to be saved in the recipe."
 msgstr "Fehler behoben, der dazu führte, dass Zutaten im Rezept nicht gespeichert wurden."
 
 msgctxt "common"
+msgid "Follow the link below to reset your password:"
+msgstr "Folge dem Link unten, um dein Passwort zurückzusetzen:"
+
+msgctxt "common"
+msgid "Follow the link below to verify your email:"
+msgstr "Folge dem Link unten, um deine E-Mail zu bestätigen:"
+
+msgctxt "common"
 msgid "Have fun and good luck with the app!"
 msgstr "Viel Spaß und viel Erfolg mit der App!"
+
+msgctxt "common"
+msgid "Hello {user},"
+msgstr "Hallo {user},"
 
 msgctxt "common"
 msgid "Hey,"
@@ -239,10 +243,6 @@ msgid "Protein"
 msgstr "Protein"
 
 msgctxt "common"
-msgid "Protein:"
-msgstr "Protein:"
-
-msgctxt "common"
 msgid "Quantity"
 msgstr "Anzahl"
 
@@ -289,6 +289,18 @@ msgstr "Rezept speichern"
 msgctxt "common"
 msgid "Search"
 msgstr "Suchen"
+
+msgctxt "common"
+msgid "Search for category"
+msgstr "Suche nach Kategorie"
+
+msgctxt "common"
+msgid "Search for name"
+msgstr "Suche nach Namen"
+
+msgctxt "common"
+msgid "Search name..."
+msgstr "Filter Namen..."
 
 msgctxt "common"
 msgid "Send"

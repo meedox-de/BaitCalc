@@ -1,5 +1,5 @@
 <?php
 return [
     'adminEmail' => 'admin@samydox.com',
-    'version'    => '0.1.3',
+    'version'    => '1.0.0',
 ];

@@ -1,6 +1,14 @@
 <?php
 
 $versionInfo = [
+    '1.0.0' => [
+        'date'    => '2025-01-05',
+        'changes' => [
+            Yii::t( 'common', 'Add fully responsive Data-Tables for smartphones.' ),
+            Yii::t( 'common', 'Add search-option for ingredients with categories.' ),
+            Yii::t( 'common', 'Fix some bugs' ),
+        ],
+    ],
     '0.1.3' => [
         'date'    => '2025-01-01',
         'changes' => [

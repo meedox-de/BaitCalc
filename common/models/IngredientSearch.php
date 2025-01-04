@@ -18,7 +18,7 @@ class IngredientSearch extends Ingredient
     {
         // @formatter:off
         return [
-            [['name'], 'safe'],
+            [['name', 'category_id'], 'safe'],
         ];
         // @formatter:on
     }
@@ -76,6 +76,10 @@ class IngredientSearch extends Ingredient
         // filtering
         $query->andFilterWhere( [
                                     'ingredient.user_id' => Yii::$app->user->id,
+                                ] );
+
+        $query->andFilterWhere( [
+                                    'ingredient.category_id' => $this->category_id,
                                 ] );
 
         $query->andFilterWhere( [

@@ -7,13 +7,13 @@ use Yii;
 /**
  * This is the model class for table "{{%category}}".
  *
- * @property int $id
- * @property int $user_id
- * @property string $name
- * @property string $created_at
+ * @property int         $id
+ * @property int         $user_id
+ * @property string      $name
+ * @property string      $created_at
  * @property string|null $updated_at
  *
- * @property User $user
+ * @property User        $user
  */
 class Category extends \yii\db\ActiveRecord
 {
@@ -47,11 +47,11 @@ class Category extends \yii\db\ActiveRecord
     public function attributeLabels() :array
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'user_id' => Yii::t('app', 'User ID'),
-            'name' => Yii::t('app', 'Name'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
+            'id'         => Yii::t( 'common', 'ID' ),
+            'user_id'    => Yii::t( 'common', 'User ID' ),
+            'name'       => Yii::t( 'common', 'Name' ),
+            'created_at' => Yii::t( 'common', 'Created At' ),
+            'updated_at' => Yii::t( 'common', 'Updated At' ),
         ];
     }
 
@@ -62,7 +62,7 @@ class Category extends \yii\db\ActiveRecord
      */
     public function getUser() :\yii\db\ActiveQuery
     {
-        return $this->hasOne(User::class, ['id' => 'user_id']);
+        return $this->hasOne( User::class, ['id' => 'user_id'] );
     }
 
     /**
@@ -71,6 +71,19 @@ class Category extends \yii\db\ActiveRecord
      */
     public static function find() :CategoryQuery
     {
-        return new CategoryQuery(get_called_class());
+        return new CategoryQuery( get_called_class() );
+    }
+
+
+    public static function getCategoryListForDropdown() :array
+    {
+        $query = self::find();
+        $query->select( [
+                            'name',
+                            'id',
+                        ] );
+        $query->userId( Yii::$app->user->id );
+        $query->indexBy( 'id' );
+        return $query->column();
     }
 }
