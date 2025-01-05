@@ -131,6 +131,10 @@ msgid "Fat"
 msgstr "Fett"
 
 msgctxt "common"
+msgid "Fix recipe view, that caused the ingredient amount was not visible on small screens."
+msgstr "Rezeptansicht korrigiert, die dazu führte, dass die Zutaten-Menge auf kleinen Bildschirmen nicht sichtbar war."
+
+msgctxt "common"
 msgid "Fix some bugs"
 msgstr "Einige Fehler behoben"
 

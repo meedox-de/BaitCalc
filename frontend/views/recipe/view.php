@@ -48,12 +48,12 @@ $accordionId = 0; // Unique ID for each collapsible section
         <?= Html::a( Yii::t( 'common', 'Update' ), [
             'update',
             'id' => $model->id,
-        ],           ['class' => 'btn btn-primary'] ) ?>
+        ],           ['class' => 'btn btn-primary mt-2 mt-sm-0'] ) ?>
         <?= Html::a( Yii::t( 'common', 'Delete' ), [
             'delete',
             'id' => $model->id,
         ],           [
-                         'class' => 'btn btn-danger',
+                         'class' => 'btn btn-danger mt-2 mt-sm-0',
                          'data'  => [
                              'confirm' => Yii::t( 'common', 'Are you sure you want to delete this item?' ),
                              'method'  => 'post',
@@ -143,10 +143,10 @@ $accordionId = 0; // Unique ID for each collapsible section
                         </h5>
                     </div>
                     <div id="collapse-<?= $accordionId ?>" class="collapse" aria-labelledby="heading-<?= $accordionId ?>">
-                        <div class="card-body">
+                        <div class="card-body p-1">
                             <?php foreach( $categoryIngredientsArray as $ingredient ): ?>
                                 <div class="ingredient-item mb-2 d-flex align-items-center">
-                                    <div class="input-group" style="flex: 1;">
+                                    <div class="input-group" style="flex: 2;">
                                         <span class="input-group-text">%</span>
                                         <input type="text"
                                                class="form-control ingredient-input"
@@ -157,6 +157,7 @@ $accordionId = 0; // Unique ID for each collapsible section
                                                data-fat="<?= $ingredient['fat'] ?>"
                                                data-protein="<?= $ingredient['protein'] ?>"
                                                data-carbohydrates="<?= $ingredient['carbohydrate'] ?>"
+                                               style="min-width: 60px;"
                                         >
                                         <button class="btn btn-outline-secondary decrement" type="button" data-ingredient-id="<?= $ingredient['id'] ?>">-</button>
                                         <button class="btn btn-outline-secondary increment" type="button" data-ingredient-id="<?= $ingredient['id'] ?>">+</button>

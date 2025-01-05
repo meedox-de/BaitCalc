@@ -1,8 +1,14 @@
 <?php
 
 $versionInfo = [
-    '1.0.0' => [
+    '1.0.1' => [
         'date'    => '2025-01-05',
+        'changes' => [
+            Yii::t( 'common', 'Fix recipe view, that caused the ingredient amount was not visible on small screens.' ),
+        ],
+    ],
+    '1.0.0' => [
+        'date'    => '2025-01-04',
         'changes' => [
             Yii::t( 'common', 'Add fully responsive Data-Tables for smartphones.' ),
             Yii::t( 'common', 'Add search-option for ingredients with categories.' ),
