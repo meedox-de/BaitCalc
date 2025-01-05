@@ -48,7 +48,7 @@ $accordionId = 0; // Unique ID for each collapsible section
         <?= Html::a( Yii::t( 'common', 'Update' ), [
             'update',
             'id' => $model->id,
-        ],           ['class' => 'btn btn-primary mt-2 mt-sm-0'] ) ?>
+        ],           ['class' => 'btn btn-primary'] ) ?>
         <?= Html::a( Yii::t( 'common', 'Delete' ), [
             'delete',
             'id' => $model->id,
