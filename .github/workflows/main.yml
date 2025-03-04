@@ -11,11 +11,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Schritt 1: Checkout des Repositorys
+      # 1: Checkout repository
       - name: Checkout repository
         uses: actions/checkout@master
 
-      # Schritt 2: Dateien auf den Hosting-Server synchronisieren (exkl. vendor)
+      # 2: Sync files to hosting server (excluding vendor)
       - name: Sync files to hosting
         uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
@@ -23,7 +23,7 @@ jobs:
           username: f0170c88
           password: ${{ secrets.ftp_password }}
 
-      # Schritt 3: Composer auf dem Live-Server ausführen (Installieren der Abhängigkeiten)
+      # 3: Run Composer on live server
       - name: Install Composer dependencies
         uses: appleboy/ssh-action@v0.1.5
         with:
@@ -34,14 +34,13 @@ jobs:
           script: |
             cd www/htdocs/w00866af/baitcalc.computer-area.net
             
-            # Stelle sicher, dass Composer verfügbar ist, und führe install aus
             if [ ! -f composer.phar ]; then
               curl -sS https://getcomposer.org/installer | php
             fi
             
             /usr/bin/php82 composer.phar install --no-dev --optimize-autoloader
 
-      # Schritt 4: Yii2-Migrationen auf dem Live-Server ausführen
+      # 4: execute Yii2 migrations
       - name: Run Yii2 migrations on live server
         uses: appleboy/ssh-action@v0.1.5
         with:
@@ -54,7 +53,7 @@ jobs:
 
             /usr/bin/php82 yii migrate --interactive=0
 
-      # Schritt 5: Yii2-Cache leeren
+      # 5: Flush Yii2 cache
       - name: Flush Yii2 cache
         uses: appleboy/ssh-action@v0.1.5
         with:
